@@ -1,0 +1,937 @@
+{
+  "warning": "TEST_FAKE_NONPRODUCTION fixtures only; no production secrets",
+  "validReconstruction": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "validResolvedPayload": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_5ffca7a25bb52281a5697118",
+      "dungeonId": "dng_0df0cbc4710e606b09f08533",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "hunt",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "9206aa26310aaaedf582e8ce6f48f28e4698541d78a9119e1644e6b856fe94f2",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RESOLVED_PAYLOAD",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "MWE5ZTgyZTJmMmIxNzY5ZmUzNmNjYWQ1ZjJkY2ZlNjQ2NTNmYTJjYmE3YWNmMzhmODViNzhkMTZiYWQ4MGExZQ"
+  },
+  "validReconstructWithFallback": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_739861aee0366c14033a3aa5",
+      "dungeonId": "dng_5f1452fd953cdbeced73b499",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "endurance",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "hell",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 8,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "d06cca651ed697e7d008bbe774c4d210ca618833d332914779eae02b0a05173d",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT_WITH_FALLBACK",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "Y2NjMDhhN2ViMjU2MmZmMzhkNTk0YzY0NjgyN2UwYzFiMDFhYmIyMjY4Njk3OGU2ODI3OWYwODQ1ZTRkN2Y3Mw"
+  },
+  "expiredManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2020-01-01T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "unknownKeyManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "unknown-test-key",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "modifiedPayloadManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "tampered",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "modifiedSignatureManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2xx"
+  },
+  "checksumMismatchPayload": {
+    "manifest": {
+      "payload": {
+        "manifestVersion": "authorized-dungeon-manifest.v12",
+        "manifestId": "man_5ffca7a25bb52281a5697118",
+        "dungeonId": "dng_0df0cbc4710e606b09f08533",
+        "requestId": "fixture-req",
+        "sessionBinding": {
+          "kind": "SESSION",
+          "opaqueId": "fixture-session",
+          "policy": "REQUIRED_MATCH"
+        },
+        "environmentProfileId": "catacombs",
+        "environmentProfileVersion": "catacombs-1",
+        "graphTemplateId": "minimal-procedural",
+        "gameTypeId": "hunt",
+        "gameTypeProfileVersion": "v11.0.0",
+        "difficultyId": "normal",
+        "difficultyProfileVersion": "v11.0.0",
+        "playerCount": 1,
+        "playerScalingProfileVersion": "v11.0.0",
+        "seed": "fixture-seed",
+        "seedPolicy": "TEST_FIXED",
+        "generatorVersion": "catacombs-gen-1",
+        "contractVersion": "catacombs.contracts.v12",
+        "serializationVersion": "catacombs.canonical-json.v1",
+        "rngVersion": "xoshiro128ss.named-streams.v1",
+        "assetRegistryId": "catacombs-assets",
+        "assetRegistryVersion": "catacombs-assets-1",
+        "gameplayCatalogVersion": "1",
+        "transformationProfileVersions": [
+          "catacombs.gameplay_transform.v11.0.0"
+        ],
+        "subBiomeIds": [
+          "ossuary"
+        ],
+        "corruptionLayerIds": [
+          "collapsed"
+        ],
+        "resolvedDungeonChecksum": "9206aa26310aaaedf582e8ce6f48f28e4698541d78a9119e1644e6b856fe94f2",
+        "checksumAlgorithm": "SHA-256",
+        "issuedAt": "2026-07-20T00:00:00Z",
+        "expiresAt": "2026-07-21T00:00:00Z",
+        "nonce": "fixture-nonce",
+        "deliveryMode": "RESOLVED_PAYLOAD",
+        "completionConditionRef": "r0",
+        "rewardPolicyRef": "server_authoritative_rewards.v1"
+      },
+      "protectedHeader": {
+        "algorithm": "TEST_FAKE_NONPRODUCTION",
+        "keyId": "test-v12-fixture",
+        "signatureFormatVersion": "catacombs-jws-detached.v1"
+      },
+      "signature": "MWE5ZTgyZTJmMmIxNzY5ZmUzNmNjYWQ1ZjJkY2ZlNjQ2NTNmYTJjYmE3YWNmMzhmODViNzhkMTZiYWQ4MGExZQ"
+    },
+    "resolvedDungeon": {
+      "schemaVersion": "1.0.0",
+      "dungeonId": "tampered",
+      "config": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "catacombs-gen-1",
+        "rootSeed": "fixture-seed",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "hunt",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 1,
+        "structuralModifiers": [
+          "collapsed"
+        ],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "monsters": "1"
+        },
+        "assetRegistryVersion": "catacombs-assets-1",
+        "subBiome": "ossuary"
+      },
+      "worldGraph": {
+        "id": "world",
+        "version": "1",
+        "areaIds": [
+          "area"
+        ],
+        "edges": []
+      },
+      "areaGraphs": [
+        {
+          "id": "area",
+          "worldGraphId": "world",
+          "roomGraphId": "roomgraph",
+          "depthLayers": [
+            {
+              "index": 0,
+              "minForward": 0,
+              "maxForward": 10,
+              "nodeIds": [
+                "n0"
+              ]
+            }
+          ]
+        }
+      ],
+      "roomGraph": {
+        "id": "roomgraph",
+        "nodes": [
+          {
+            "id": "n0",
+            "category": "room",
+            "scale": "medium",
+            "function": "entrance",
+            "archetypeId": "mausoleum_entrance",
+            "depthLayer": 0,
+            "degree": 0,
+            "criticalPathEligible": true,
+            "branchEligible": false,
+            "tags": []
+          }
+        ],
+        "edges": [],
+        "branches": [
+          {
+            "id": "b0",
+            "kind": "primary_trunk",
+            "divergenceNodeId": "n0",
+            "nodeIds": [
+              "n0"
+            ],
+            "purpose": "critical_progression"
+          }
+        ],
+        "criticalPathNodeIds": [
+          "n0"
+        ]
+      },
+      "rooms": [
+        {
+          "id": "r0",
+          "graphNodeId": "n0",
+          "archetypeId": "mausoleum_entrance",
+          "shape": "rectangle",
+          "footprint": {
+            "x": 0,
+            "y": 0,
+            "w": 4,
+            "h": 4,
+            "rotation": 0
+          },
+          "doorCapacity": 1,
+          "contentSlots": [],
+          "navigationClearance": 2
+        }
+      ],
+      "starts": [
+        "r0"
+      ],
+      "completion": {
+        "exitRoomId": "r0"
+      },
+      "tiles": {
+        "width": 2,
+        "height": 2,
+        "encoding": "typed-array/base64",
+        "layers": [
+          {
+            "id": "walkable",
+            "typedArray": true,
+            "type": "Uint8Array",
+            "endian": "little",
+            "length": 4,
+            "byteLength": 4,
+            "base64": "AQEBAQ=="
+          }
+        ]
+      },
+      "boundaries": [],
+      "constructionPlacements": [],
+      "gameplayPlacements": [],
+      "encounters": [],
+      "hazards": [],
+      "events": [],
+      "objectives": [],
+      "rewards": [],
+      "bosses": [],
+      "assetUsage": [],
+      "materialGroups": [],
+      "drawCallGroups": [],
+      "metrics": {
+        "graphQualityScore": 1,
+        "retryCount": 0,
+        "payloadBytes": 0,
+        "drawCalls": 0,
+        "triangles": 0,
+        "activeMonsterBudget": 0,
+        "generationTimingMs": 12,
+        "frameTimeMs": 16
+      },
+      "validation": {
+        "schemaVersion": "1.0.0",
+        "valid": true,
+        "issues": [],
+        "gates": {
+          "contract": true
+        }
+      },
+      "diagnostics": {
+        "schemaVersion": "1.0.0",
+        "attemptHistory": [],
+        "stageSnapshots": [],
+        "issues": [],
+        "metrics": {
+          "graphQualityScore": 1,
+          "retryCount": 0,
+          "payloadBytes": 0,
+          "drawCalls": 0,
+          "triangles": 0,
+          "activeMonsterBudget": 0
+        },
+        "timingsExcludedFromCanonical": {}
+      },
+      "canonicalChecksum": "9206aa26310aaaedf582e8ce6f48f28e4698541d78a9119e1644e6b856fe94f2"
+    }
+  },
+  "incompatibleGeneratorVersion": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-future",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "missingAssetRegistryVersion": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "missing-assets",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "sessionBindingMismatch": {
+    "manifest": {
+      "payload": {
+        "manifestVersion": "authorized-dungeon-manifest.v12",
+        "manifestId": "man_2be483ff982c78c7a10b35cf",
+        "dungeonId": "dng_5b007b990c12137025d32f95",
+        "requestId": "fixture-req",
+        "sessionBinding": {
+          "kind": "SESSION",
+          "opaqueId": "fixture-session",
+          "policy": "REQUIRED_MATCH"
+        },
+        "environmentProfileId": "catacombs",
+        "environmentProfileVersion": "catacombs-1",
+        "graphTemplateId": "minimal-procedural",
+        "gameTypeId": "speed_run",
+        "gameTypeProfileVersion": "v11.0.0",
+        "difficultyId": "normal",
+        "difficultyProfileVersion": "v11.0.0",
+        "playerCount": 1,
+        "playerScalingProfileVersion": "v11.0.0",
+        "seed": "fixture-seed",
+        "seedPolicy": "TEST_FIXED",
+        "generatorVersion": "catacombs-gen-1",
+        "contractVersion": "catacombs.contracts.v12",
+        "serializationVersion": "catacombs.canonical-json.v1",
+        "rngVersion": "xoshiro128ss.named-streams.v1",
+        "assetRegistryId": "catacombs-assets",
+        "assetRegistryVersion": "catacombs-assets-1",
+        "gameplayCatalogVersion": "1",
+        "transformationProfileVersions": [
+          "catacombs.gameplay_transform.v11.0.0"
+        ],
+        "subBiomeIds": [
+          "ossuary"
+        ],
+        "corruptionLayerIds": [
+          "collapsed"
+        ],
+        "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+        "checksumAlgorithm": "SHA-256",
+        "issuedAt": "2026-07-20T00:00:00Z",
+        "expiresAt": "2026-07-21T00:00:00Z",
+        "nonce": "fixture-nonce",
+        "deliveryMode": "RECONSTRUCT",
+        "completionConditionRef": "r0",
+        "rewardPolicyRef": "server_authoritative_rewards.v1"
+      },
+      "protectedHeader": {
+        "algorithm": "TEST_FAKE_NONPRODUCTION",
+        "keyId": "test-v12-fixture",
+        "signatureFormatVersion": "catacombs-jws-detached.v1"
+      },
+      "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+    },
+    "verificationContext": {
+      "binding": {
+        "kind": "SESSION",
+        "opaqueId": "wrong-session",
+        "policy": "REQUIRED_MATCH"
+      }
+    }
+  },
+  "catacombsSpeedRunManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_2be483ff982c78c7a10b35cf",
+      "dungeonId": "dng_5b007b990c12137025d32f95",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "speed_run",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "dbeb6202030dd58d24d3691692d2fda2d35594acae02a977152374cf57fac035",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "ZTRjODgyMjY5OTNiNmE0ODMyNjM5NzMyNGNiNWVmZTllN2RkYzZhYzM0MjBkNGE0OTU3ZmNlOGJiOGU5NWY2ZQ"
+  },
+  "catacombsHuntManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_5ffca7a25bb52281a5697118",
+      "dungeonId": "dng_0df0cbc4710e606b09f08533",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "hunt",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "normal",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 1,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "9206aa26310aaaedf582e8ce6f48f28e4698541d78a9119e1644e6b856fe94f2",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RESOLVED_PAYLOAD",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "MWE5ZTgyZTJmMmIxNzY5ZmUzNmNjYWQ1ZjJkY2ZlNjQ2NTNmYTJjYmE3YWNmMzhmODViNzhkMTZiYWQ4MGExZQ"
+  },
+  "catacombsEnduranceManifest": {
+    "payload": {
+      "manifestVersion": "authorized-dungeon-manifest.v12",
+      "manifestId": "man_739861aee0366c14033a3aa5",
+      "dungeonId": "dng_5f1452fd953cdbeced73b499",
+      "requestId": "fixture-req",
+      "sessionBinding": {
+        "kind": "SESSION",
+        "opaqueId": "fixture-session",
+        "policy": "REQUIRED_MATCH"
+      },
+      "environmentProfileId": "catacombs",
+      "environmentProfileVersion": "catacombs-1",
+      "graphTemplateId": "minimal-procedural",
+      "gameTypeId": "endurance",
+      "gameTypeProfileVersion": "v11.0.0",
+      "difficultyId": "hell",
+      "difficultyProfileVersion": "v11.0.0",
+      "playerCount": 8,
+      "playerScalingProfileVersion": "v11.0.0",
+      "seed": "fixture-seed",
+      "seedPolicy": "TEST_FIXED",
+      "generatorVersion": "catacombs-gen-1",
+      "contractVersion": "catacombs.contracts.v12",
+      "serializationVersion": "catacombs.canonical-json.v1",
+      "rngVersion": "xoshiro128ss.named-streams.v1",
+      "assetRegistryId": "catacombs-assets",
+      "assetRegistryVersion": "catacombs-assets-1",
+      "gameplayCatalogVersion": "1",
+      "transformationProfileVersions": [
+        "catacombs.gameplay_transform.v11.0.0"
+      ],
+      "subBiomeIds": [
+        "ossuary"
+      ],
+      "corruptionLayerIds": [
+        "collapsed"
+      ],
+      "resolvedDungeonChecksum": "d06cca651ed697e7d008bbe774c4d210ca618833d332914779eae02b0a05173d",
+      "checksumAlgorithm": "SHA-256",
+      "issuedAt": "2026-07-20T00:00:00Z",
+      "expiresAt": "2026-07-21T00:00:00Z",
+      "nonce": "fixture-nonce",
+      "deliveryMode": "RECONSTRUCT_WITH_FALLBACK",
+      "completionConditionRef": "r0",
+      "rewardPolicyRef": "server_authoritative_rewards.v1"
+    },
+    "protectedHeader": {
+      "algorithm": "TEST_FAKE_NONPRODUCTION",
+      "keyId": "test-v12-fixture",
+      "signatureFormatVersion": "catacombs-jws-detached.v1"
+    },
+    "signature": "Y2NjMDhhN2ViMjU2MmZmMzhkNTk0YzY0NjgyN2UwYzFiMDFhYmIyMjY4Njk3OGU2ODI3OWYwODQ1ZTRkN2Y3Mw"
+  }
+}
