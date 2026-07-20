@@ -1,32 +1,115 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/schemas/catacombs-reference-generator/resolved-dungeon.schema.json",
-  "title": "resolved-dungeon.schema.json",
-  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "type": "string",
-      "description": "Contract schema version."
+      "type": "string"
     },
     "dungeonId": {
       "type": "string"
     },
-    "canonicalChecksum": {
-      "type": "string"
+    "config": {
+      "type": "object"
     },
-    "rooms": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+    "worldGraph": {
+      "type": "object"
+    },
+    "areaGraphs": {
+      "type": "array"
     },
     "roomGraph": {
       "type": "object"
     },
-    "tiles": {
+    "rooms": {
+      "type": "array"
+    },
+    "starts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completion": {
       "type": "object"
+    },
+    "tiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "encoding",
+        "layers"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "encoding": {
+          "const": "typed-array/base64"
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "typedArray",
+              "type",
+              "endian",
+              "length",
+              "byteLength",
+              "base64"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "typedArray": {
+                "const": true
+              },
+              "type": {
+                "enum": [
+                  "Uint8Array",
+                  "Int8Array",
+                  "Uint16Array",
+                  "Int16Array",
+                  "Uint32Array",
+                  "Int32Array",
+                  "Float32Array",
+                  "Float64Array"
+                ]
+              },
+              "endian": {
+                "const": "little"
+              },
+              "length": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "byteLength": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "base64": {
+                "type": "string",
+                "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "boundaries": {
+      "type": "array"
     },
     "constructionPlacements": {
       "type": "array"
@@ -34,31 +117,72 @@
     "gameplayPlacements": {
       "type": "array"
     },
+    "encounters": {
+      "type": "array"
+    },
+    "hazards": {
+      "type": "array"
+    },
+    "events": {
+      "type": "array"
+    },
+    "objectives": {
+      "type": "array"
+    },
+    "rewards": {
+      "type": "array"
+    },
     "bosses": {
       "type": "array"
+    },
+    "assetUsage": {
+      "type": "array"
+    },
+    "materialGroups": {
+      "type": "array"
+    },
+    "drawCallGroups": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "canonicalChecksum": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
     }
   },
   "required": [
     "schemaVersion",
     "dungeonId",
-    "rooms",
+    "config",
+    "worldGraph",
+    "areaGraphs",
     "roomGraph",
+    "rooms",
+    "starts",
+    "completion",
     "tiles",
+    "boundaries",
     "constructionPlacements",
     "gameplayPlacements",
-    "bosses"
-  ],
-  "examples": [
-    {
-      "schemaVersion": "1.0.0",
-      "dungeonId": "dng_1",
-      "canonicalChecksum": "",
-      "rooms": [],
-      "roomGraph": {},
-      "tiles": {},
-      "constructionPlacements": [],
-      "gameplayPlacements": [],
-      "bosses": []
-    }
+    "encounters",
+    "hazards",
+    "events",
+    "objectives",
+    "rewards",
+    "bosses",
+    "assetUsage",
+    "materialGroups",
+    "drawCallGroups",
+    "metrics",
+    "validation",
+    "canonicalChecksum"
   ]
 }

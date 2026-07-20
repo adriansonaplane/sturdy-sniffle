@@ -29,3 +29,49 @@
 | GAP-012 | Staged build animation | Gap analysis blocker 12 | migration_plan.md; determinism_serialization.md; diagnostics_workbench.md | generation-diagnostics / resolved-dungeon | 12 | Regression/validation trace | Workbench | Specified |
 | GAP-013 | Immutable generation vs mutable state | Gap analysis blocker 13 | migration_plan.md; determinism_serialization.md; diagnostics_workbench.md | generation-diagnostics / resolved-dungeon | 10 | Regression/validation trace | Authority | Specified |
 | GAP-014 | Historical index old themes removed from production | Gap analysis blocker 14 | migration_plan.md; determinism_serialization.md; diagnostics_workbench.md | generation-diagnostics / resolved-dungeon | 14 | Regression/validation trace | Workbench | Specified |
+
+## Phase 1-2 implementation status (2026-07-20)
+
+Status: implemented foundation only. Catacombs graph generation remains deferred to Prompt 4.
+
+Implemented modules:
+- `src/dungeon/contracts`: shared immutable generation contracts, manifest/session-state boundary types, and static authority/canonicality metadata.
+- `src/dungeon/validation`: AJV 2020-12 runtime schema validation with compiled reusable validators and structured issues.
+- `src/dungeon/determinism`: versioned named RNG streams using SHA-256 namespace derivation and xoshiro128** state transitions, plus deterministic retry attempt seed derivation.
+- `src/dungeon/canonical`: explicit resolved-dungeon canonical projection, typed-array base64 wrappers, canonical JSON serialization, and SHA-256 checksum helpers.
+- `src/dungeon/authorization`: injectable manifest signer/verifier interfaces and compatibility/expiration verification boundaries; no production private keys.
+- `src/dungeon/workbench`: narrow adapter for tree inspection, typed-array summaries, canonical export, checksum calls, authority labels, and diagnostics serialization.
+
+Schema corrections:
+- `dungeon-config.schema.json` now includes generation mode, layout profile, modifiers, content table versions, and stricter player/seed constraints.
+- `environment-profile.schema.json` now reflects layout profiles, sub-biomes, modifiers, compatibility, and active Catacombs-only status.
+- `graph-template.schema.json` now classifies procedural/predefined/hybrid template mode.
+- `asset-registry.schema.json` now requires authoritative registry entry fields used by the contracts.
+- `authorized-dungeon-manifest.schema.json` now includes generator/environment/content versions and resolved payload references.
+- `resolved-dungeon.schema.json` now covers the phase-1 resolved payload envelope and canonical typed-array wrapper shape.
+- `generation-diagnostics.schema.json` now includes metrics while retaining timing exclusion.
+
+Canonical encoding decisions:
+- Canonical JSON uses UTF-8, lexicographically sorted object keys, preserved array order, and rejects undefined, functions, symbols, sparse arrays, cycles, nonfinite numbers, and negative zero.
+- Typed arrays are encoded losslessly as `{ typedArray: true, type, endian: "little", length, byteLength, base64 }`; display summaries are separate and noncanonical.
+- Authoritative floating typed-array values reject NaN, infinity, and negative zero.
+
+RNG and checksum:
+- RNG algorithm/version: `xoshiro128ss-sha256-v1`.
+- Namespace derivation: SHA-256 over algorithm version, generator version, root seed, and stable namespace; retry attempts use a namespace-separated attempt stream.
+- Test vectors are Jest snapshots under `test/dungeon/__snapshots__/all.test.ts.snap`.
+- Checksum format: SHA-256 lowercase hexadecimal over explicit canonical projection bytes; checksum is not a signature.
+
+Signing boundary and workbench status:
+- Manifest signing and verification are injectable interfaces only. Test fake signatures are labeled `TEST_FAKE_NONPRODUCTION` and remain test support only.
+- Workbench compatibility adapter exists as a module but direct HTML workbench integration is deferred to avoid premature bundling or UI rewrites.
+
+Validation commands:
+- `npm test`
+- `npm run typecheck`
+- `npm run build`
+- `git diff --check`
+
+Remaining blockers for Prompt 4:
+- Implement the Catacombs layered braided graph generator and semantic graph validation.
+- Add room archetype assignment, spatial embedding, corridor routing, raster/navigation validation, construction, gameplay placement, rendering integration, staged animation, and live server signing in later phases only.

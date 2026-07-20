@@ -1,14 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/schemas/catacombs-reference-generator/environment-profile.schema.json",
-  "title": "environment-profile.schema.json",
-  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "type": "string",
-      "description": "Contract schema version."
+      "type": "string"
     },
     "environmentId": {
       "const": "catacombs"
@@ -22,23 +19,36 @@
     "status": {
       "const": "active"
     },
+    "layoutProfiles": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "subBiomes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "modifiers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
     "archetypeIds": {
       "type": "array",
+      "minItems": 20,
+      "uniqueItems": true,
       "items": {
         "type": "string"
-      },
-      "minItems": 20
+      }
     },
-    "plannedEnvironments": {
-      "type": "array",
-      "items": {
-        "enum": [
-          "garden_maze",
-          "dark_tower",
-          "hells_canyon",
-          "town",
-          "monastery"
-        ]
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
       }
     }
   },
@@ -48,42 +58,10 @@
     "environmentVersion",
     "displayName",
     "status",
-    "archetypeIds"
-  ],
-  "examples": [
-    {
-      "schemaVersion": "1.0.0",
-      "environmentId": "catacombs",
-      "environmentVersion": "catacombs-1",
-      "displayName": "Catacombs",
-      "status": "active",
-      "archetypeIds": [
-        "mausoleum_entrance",
-        "entry_crypt",
-        "burial_passage",
-        "ossuary_gallery",
-        "crypt_junction",
-        "gate_chamber",
-        "family_crypt",
-        "burial_cell",
-        "embalming_chamber",
-        "bone_repository",
-        "reliquary",
-        "memorial_chapel",
-        "royal_cubiculum",
-        "collapsed_crypt",
-        "ritual_chamber",
-        "grand_ossuary",
-        "sealed_tomb",
-        "boss_antechamber",
-        "boss_sepulcher",
-        "return_portal_chamber"
-      ],
-      "plannedEnvironments": [
-        "garden_maze",
-        "dark_tower",
-        "hells_canyon"
-      ]
-    }
+    "layoutProfiles",
+    "subBiomes",
+    "modifiers",
+    "archetypeIds",
+    "compatibility"
   ]
 }

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`retry derivation stable and immutable config 1`] = `
+[
+  "871122231",
+  "951957530",
+  "3724496812",
+  "1748210961",
+]
+`;
+
+exports[`retry derivation stable and immutable config 2`] = `"544864217"`;
+
+exports[`retry derivation stable and immutable config 3`] = `"2714698025"`;
+
+exports[`rng stable vectors and helpers 1`] = `
+{
+  "bosses": 2256401979,
+  "construction": 2760418661,
+  "corridorRouting": 2111719223,
+  "encounters": 3501371894,
+  "graph": 2021460140,
+  "hazards": 1207894589,
+  "modifiers": 249156858,
+  "naming": 2933832443,
+  "objectives": 1107370309,
+  "props": 1404661212,
+  "roomAssignment": 3527164636,
+  "spatialEmbedding": 1468640063,
+  "subBiome": 835691724,
+  "templates": 329642124,
+}
+`;

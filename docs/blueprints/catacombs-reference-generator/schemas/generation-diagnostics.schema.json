@@ -24,13 +24,17 @@
     },
     "timingsExcludedFromCanonical": {
       "type": "object"
+    },
+    "metrics": {
+      "type": "object"
     }
   },
   "required": [
     "schemaVersion",
     "issues",
     "attemptHistory",
-    "stageSnapshots"
+    "stageSnapshots",
+    "metrics"
   ],
   "examples": [
     {
