@@ -14,7 +14,7 @@ REFERENCE FILE
 
 
 
-First inspect the attached/reference `index.html`. If it's not attached check out the repository.
+First inspect the attached/reference `template/index.html` and `template/main.js`. If it's not attached check out the repository.
 
 
 
