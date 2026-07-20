@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Catacombs spatial embedding and room footprint realization 100-seed graph-room-spatial suite reports stable distributions 1`] = `
+{
+  "acceptedCandidates": [
+    0,
+    2,
+    1,
+  ],
+  "areaMax": 875394,
+  "areaMin": 148488,
+  "laneMax": 11,
+  "predictedLengthMax": 6371,
+  "qualityMax": 0.982323,
+  "qualityMin": 0.946928,
+  "successRate": 1,
+}
+`;

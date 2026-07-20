@@ -3,3 +3,5 @@ export * from './contracts/index.js'; export * from './determinism/rng.js'; expo
 export * from './graph.js';
 
 export * from './roomAssignment.js';
+
+export * from './spatialEmbedding.js';
