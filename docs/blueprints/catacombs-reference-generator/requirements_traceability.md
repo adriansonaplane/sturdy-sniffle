@@ -105,3 +105,12 @@ Workbench status: production semantic-room view data and legends are exposed thr
 Fixtures and tests: `test/dungeon/roomAssignment.test.ts` covers the immutable twenty-room registry, mandatory anchors, composition profiles, degree/depth/adjacency validation, terminal-purpose mapping, content slots and deferred profile references, determinism/RNG isolation, structured failure behavior, 100 deterministic graph-to-room seeds across small/medium/large profiles with loops/secrets, distribution snapshots, and workbench adapter data.
 
 Known limitations and Prompt 6 blockers: Phase 4 intentionally stops at semantic assignment. Spatial embedding, room footprint realization, corridor routing, rasterization, construction placement, gameplay placement, authorization integration, renderer integration, and game-type/difficulty transforms remain deferred.
+
+## Phase 5 traceability — Catacombs spatial embedding
+
+- Coordinate convention: graph-grid anchors use integer `{x, y, level}` where `x` is branch lane, `y` is forward progression order, and `level` is `0`; tile-grid origins and masks use integer tile cells.
+- Shape-mask convention: `catacombs.shape_mask.row_major_u8.v1.0.0`, index `y * width + x`, occupied value `1`, blocked/outside value `0`.
+- Production module: `src/dungeon/spatialEmbedding.ts` exposes `embedCatacombsRooms`, spatial contracts, mask realization, clearance analysis, overlap detection, metrics, snapshots, diagnostics, and `buildCatacombsSpatialWorkbenchView`.
+- Diagnostics: Phase 5 stable codes include configuration, shape/mask, anchoring/lane, separation, overlap, padding, boundary, unauthorized-contact, approach, clearance, quality, and exhausted-candidate failures.
+- Validation: spatial unit and 100-seed graph-to-room-to-spatial tests cover deterministic dimensions/shapes, masks, overlap, padding, lanes, approaches, clearance, deterministic projection, failure behavior, and workbench summaries.
+- Known limitation: separation currently uses deterministic spacing/scatter sufficient for bounded Catacombs fixtures and exact validation; final corridor routing, final doorway selection, raster tile carving, wall/assets/rendering/gameplay/session authority remain Prompt 7+ blockers.
