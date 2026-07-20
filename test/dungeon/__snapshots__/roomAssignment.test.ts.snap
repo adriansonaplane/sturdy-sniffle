@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Catacombs room assignment and semantic grammar 100-seed graph-to-room property suite reports distributions 1`] = `
+{
+  "archetypeDistribution": {
+    "catacombs.room.bone-repository": 89,
+    "catacombs.room.boss-antechamber": 100,
+    "catacombs.room.boss-sepulcher": 100,
+    "catacombs.room.burial-passage": 449,
+    "catacombs.room.crypt-junction": 221,
+    "catacombs.room.embalming-chamber": 78,
+    "catacombs.room.entry-crypt": 100,
+    "catacombs.room.family-crypt": 196,
+    "catacombs.room.gate-chamber": 4,
+    "catacombs.room.grand-ossuary": 224,
+    "catacombs.room.mausoleum-entrance": 100,
+    "catacombs.room.memorial-chapel": 33,
+    "catacombs.room.ossuary-gallery": 95,
+    "catacombs.room.reliquary": 67,
+    "catacombs.room.return-portal-chamber": 100,
+    "catacombs.room.ritual-chamber": 51,
+    "catacombs.room.royal-cubiculum": 33,
+    "catacombs.room.sealed-tomb": 9,
+  },
+  "attemptMax": 1,
+  "backtrackMax": 0,
+  "functionDistribution": {
+    "antechamber": 100,
+    "boss": 100,
+    "combat": 318,
+    "entrance": 100,
+    "exit": 100,
+    "junction": 445,
+    "key_gate": 4,
+    "objective": 162,
+    "passage": 644,
+    "reward": 67,
+    "secret": 9,
+  },
+  "qualityMax": 0.95,
+  "qualityMin": 0.803846,
+  "scaleDistribution": {
+    "connector": 544,
+    "landmark": 200,
+    "large": 290,
+    "medium": 794,
+    "small": 221,
+  },
+  "successRate": 1,
+}
+`;
+
+exports[`Catacombs room assignment and semantic grammar registry contains exactly the locked twenty immutable archetypes 1`] = `
+[
+  "catacombs.room.mausoleum-entrance",
+  "catacombs.room.entry-crypt",
+  "catacombs.room.burial-passage",
+  "catacombs.room.ossuary-gallery",
+  "catacombs.room.crypt-junction",
+  "catacombs.room.gate-chamber",
+  "catacombs.room.family-crypt",
+  "catacombs.room.burial-cell",
+  "catacombs.room.embalming-chamber",
+  "catacombs.room.bone-repository",
+  "catacombs.room.reliquary",
+  "catacombs.room.memorial-chapel",
+  "catacombs.room.royal-cubiculum",
+  "catacombs.room.collapsed-crypt",
+  "catacombs.room.ritual-chamber",
+  "catacombs.room.grand-ossuary",
+  "catacombs.room.sealed-tomb",
+  "catacombs.room.boss-antechamber",
+  "catacombs.room.boss-sepulcher",
+  "catacombs.room.return-portal-chamber",
+]
+`;
