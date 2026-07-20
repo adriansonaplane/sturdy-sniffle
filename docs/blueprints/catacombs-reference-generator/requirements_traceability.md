@@ -87,3 +87,21 @@ Stable diagnostic codes for Phase 3 are exported as `CATACOMBS_GRAPH_DIAGNOSTIC_
 Workbench status: `src/dungeon/workbench/adapter.ts` now provides a noncanonical graph view model for primary trunks, secondary trunks, divergences, reconvergences, loops, secrets, dead ends, critical paths, depth layers, degree/function views, articulation points, bridge edges, validation targets, and candidate history. The existing inline workbench graph logic remains legacy diagnostic behavior pending full Prompt 11 integration.
 
 Deferred by design: room assignment, room footprints, spatial embedding, corridor routing, rasterization, construction assets, renderer changes, encounters, hazards, objectives, bosses, mutable gameplay state, online session simulation, and reward authorization.
+
+## Prompt 5 / Phase 4 — Catacombs Room Assignment and Semantic Grammar
+
+Implemented in `src/dungeon/roomAssignment.ts` with archetype registry version `catacombs.room_archetypes.v4.0.0` and assignment algorithm version `catacombs.room_assignment.semantic_csp.v4.0.0`.
+
+The phase consumes the validated Prompt 4 `RoomGraph` without topology mutation and emits canonical `AssignedRoom` records with `placementState: "unembedded"`; no coordinates, footprints, corridor paths, raster tiles, Three.js objects, monsters, hazards, reward authorization, game-type transformation, or session-state mutation are produced.
+
+CSP strategy: deterministic bounded single-attempt semantic assignment over graph-derived node contexts. The implementation recomputes degree, normalized depth, critical-path membership, branch membership, terminal/dead-end status, divergence/reconvergence status, conditional-loop endpoint status, secret status, and neighbor IDs before assignment. Mandatory anchors are assigned first by role: Mausoleum Entrance, Entry Crypt, Boss Antechamber, Boss Sepulcher, and Return Portal Chamber when graph/session topology exposes the post-completion exit placeholder. Candidate domains are deterministic and ordered by stable archetype IDs, with roomAssignment RNG used only for non-mandatory fill ordering.
+
+Composition profiles are declared for small, medium, and large Catacombs graphs. They encode required unique rooms, minimum/target/maximum guidance, duplicate restrictions, stable weights, and profile node-count bands. Small graphs keep landmarks compact; medium is the reference variety profile; large supports expanded landmarks and repeated room families.
+
+Validation covers required and unique counts, degree/depth compatibility, boss sequence, terminal-purpose compatibility, secret/conditional compatibility, medium/large peer adjacency restrictions and explicit exceptions, content-slot integrity, and unassigned-node failure. Stable diagnostic codes include all `ROOM_*` codes required by the Phase 4 prompt. Assignment metrics report assigned/unassigned counts, archetype/function/scale/shape distributions, critical-path archetype sequence, combat pacing, terminal/junction/reconvergence fit, violation counts, content-slot totals, landmark distance distribution, diversity, repetition penalty, quality score, attempt count, accepted attempt index, and backtrack count.
+
+Workbench status: production semantic-room view data and legends are exposed through `buildCatacombsRoomAssignmentWorkbenchView`. The single-file HTML workbench remains operable and its inline generic assignment remains legacy diagnostic behavior; no second production registry was added to the HTML.
+
+Fixtures and tests: `test/dungeon/roomAssignment.test.ts` covers the immutable twenty-room registry, mandatory anchors, composition profiles, degree/depth/adjacency validation, terminal-purpose mapping, content slots and deferred profile references, determinism/RNG isolation, structured failure behavior, 100 deterministic graph-to-room seeds across small/medium/large profiles with loops/secrets, distribution snapshots, and workbench adapter data.
+
+Known limitations and Prompt 6 blockers: Phase 4 intentionally stops at semantic assignment. Spatial embedding, room footprint realization, corridor routing, rasterization, construction placement, gameplay placement, authorization integration, renderer integration, and game-type/difficulty transforms remain deferred.
