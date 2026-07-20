@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/validation-result.schema.json",
+  "title": "validation-result.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "valid": {
+      "type": "boolean"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "valid",
+    "issues",
+    "gates"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "valid": true,
+      "issues": [],
+      "gates": {
+        "contract": true
+      }
+    }
+  ]
+}

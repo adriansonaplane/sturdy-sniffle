@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/asset-registry.schema.json",
+  "title": "asset-registry.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "registryVersion": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "version",
+          "proceduralFallbackId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "authoredUri": {
+            "type": "string"
+          },
+          "proceduralFallbackId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "registryVersion",
+    "entries"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "registryVersion": "catacombs-assets-1",
+      "entries": [
+        {
+          "id": "catacombs.floor.stone_slab",
+          "version": "1",
+          "proceduralFallbackId": "fallback.floor.stone_slab"
+        }
+      ]
+    }
+  ]
+}
