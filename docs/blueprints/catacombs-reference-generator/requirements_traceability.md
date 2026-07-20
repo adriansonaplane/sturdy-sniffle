@@ -114,3 +114,17 @@ Known limitations and Prompt 6 blockers: Phase 4 intentionally stops at semantic
 - Diagnostics: Phase 5 stable codes include configuration, shape/mask, anchoring/lane, separation, overlap, padding, boundary, unauthorized-contact, approach, clearance, quality, and exhausted-candidate failures.
 - Validation: spatial unit and 100-seed graph-to-room-to-spatial tests cover deterministic dimensions/shapes, masks, overlap, padding, lanes, approaches, clearance, deterministic projection, failure behavior, and workbench summaries.
 - Known limitation: separation currently uses deterministic spacing/scatter sufficient for bounded Catacombs fixtures and exact validation; final corridor routing, final doorway selection, raster tile carving, wall/assets/rendering/gameplay/session authority remain Prompt 7+ blockers.
+
+## Phase 6 traceability — routing/raster/navigation
+
+- Algorithm version: `catacombs.corridor_routing.raster_nav.v6.0.0`.
+- Contracts/API: `routeAndRasterizeCatacombs` consumes Prompt 4 graph, Prompt 5 assignments, and Prompt 6 embedding/approaches; it returns corridors, doorways, edge boundaries, tile layers, navigation data, metrics, diagnostics, and snapshots.
+- Edge order: critical primary passages first, then boss approach, secondary passages, loops, terminal/reward spurs, transitions, conditional shortcuts, secrets, and post-completion exits; ties use stable edge IDs.
+- Routing behavior: straight orthogonal routes are tried first, then deterministic horizontal/vertical L routes, bounded double-bend doglegs, and a four-neighbor deterministic A* fallback.
+- Width semantics: odd widths expand symmetrically around centerlines; even widths add the deterministic positive-axis extra band. Critical/boss corridors default wider than ordinary/secret routes and are never silently narrowed.
+- Doorway model: logical categories include open arches, ordinary doors, ritual barriers, hidden masonry doors, monumental boss entrances, and post-completion thresholds; runtime door simulation is excluded.
+- Raster/navigation: room, corridor, and doorway floors are encoded as typed-array/base64 layers with room/corridor ownership; initial and final traversal masks are separate; integer BFS distances use `-1` as unreachable; clearance uses a deterministic Manhattan-style blocked-edge distance.
+- Boundaries: walls/openings are edge records on floor tile sides; door openings replace ordinary walls.
+- Validation/diagnostics: stable Phase 6 codes cover config/input, approach selection, path routing, doorway, raster, navigation, equivalence, candidate, and quality failures.
+- Tests: unit coverage includes routing order, width expansion, successful abstract-to-raster routing, state projections, deterministic reruns, structured failures, workbench adapter projection, and a bounded multi-seed sweep.
+- Deferred: construction placements, authored assets, rendering, gameplay placement, game-type transformations, authorization/session mutation, and full workbench overlays remain future phases.
