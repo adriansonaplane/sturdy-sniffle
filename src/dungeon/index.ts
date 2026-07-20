@@ -7,3 +7,5 @@ export * from './roomAssignment.js';
 export * from './spatialEmbedding.js';
 
 export * from './catacombsRouting.js';
+export * from './assetRegistry.js';
+export * from './construction.js';
