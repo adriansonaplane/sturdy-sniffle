@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`100-seed abstract-to-raster property suite reports stable distributions 1`] = `
+{
+  "astar": 0,
+  "bendMax": 1,
+  "dogleg": 55,
+  "qualityMin": 0.980683,
+  "single": 385,
+  "straight": 0,
+  "success": 20,
+  "widths": {
+    "1": 3,
+    "2": 133,
+    "3": 304,
+  },
+}
+`;

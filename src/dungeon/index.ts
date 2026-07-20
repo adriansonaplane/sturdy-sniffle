@@ -5,3 +5,5 @@ export * from './graph.js';
 export * from './roomAssignment.js';
 
 export * from './spatialEmbedding.js';
+
+export * from './catacombsRouting.js';

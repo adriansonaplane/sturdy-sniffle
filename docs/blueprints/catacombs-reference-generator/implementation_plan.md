@@ -32,3 +32,21 @@ Deferred scope remains unchanged: final corridor routing, doorway selection, wal
 
 Routine command: `npm test -- --runInBand test/dungeon/spatialEmbedding.test.ts`.
 Nightly/release seed sweep currently lives in the spatial test suite's 100-seed graph/room/spatial case.
+
+## Phase 6 implementation note — Catacombs Corridor Routing, Doorways, and Tile Rasterization
+
+Status: shared-module foundation implemented as `catacombs.corridor_routing.raster_nav.v6.0.0`.
+
+Implemented scope:
+- deterministic graph-edge classification and routing order for primary, boss, secondary, loop, spur, conditional, secret, and post-completion passages;
+- validated routing configuration with four-neighbor canonical navigation defaults, bounded bend/length/candidate settings, width policies, and stable diagnostic codes;
+- selected Prompt 6 connection approaches and generated routed corridor records, logical doorway records, raster tile layers, ownership layers, edge-based boundary records, initial/final traversal masks, integer BFS distance fields, Manhattan-style clearance fields, navigation regions, portals, metrics, diagnostics, and snapshots;
+- straight, L, double-bend, and deterministic A* fallback primitives are present, with simple L routing retained only as one bounded strategy;
+- workbench adapter projection exposes routing/raster/navigation data without duplicating routing logic.
+
+Known limitations:
+- Phase 6 intentionally remains geometry/navigation data only; no assets, GLTF loading, Three.js rendering, props, monsters, hazards, objectives, game-type transforms, or mutable online session state were implemented.
+- Routine CI covers a 20-seed abstract-to-raster sweep to keep verification bounded; nightly/release should raise the same Jest routing property loop to 100+ seeds or add a dedicated benchmark harness.
+- Junction promotion is diagnostic-only; graph topology is never mutated in this phase.
+
+Prompt 8 blocker summary: construction records can now consume corridors, doorways, tile ownership, edge-based boundaries, navigation masks, regions, and portals, but authored structural asset placement and material/mesh resolution remain deferred.
