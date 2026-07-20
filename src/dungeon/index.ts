@@ -10,3 +10,4 @@ export * from './catacombsRouting.js';
 export * from './assetRegistry.js';
 export * from './construction.js';
 export * from './gameplay.js';
+export * from './gameplayTransformations.js';
