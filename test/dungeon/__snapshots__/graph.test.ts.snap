@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Catacombs layered braided graph generator 100-seed pull request suite succeeds across profiles 1`] = `
+{
+  "articulationMax": 14,
+  "deadEndMin": 2,
+  "loopMin": 1,
+  "qualityMin": 0.9363083164300204,
+  "retryMax": 0,
+  "successRate": 1,
+}
+`;

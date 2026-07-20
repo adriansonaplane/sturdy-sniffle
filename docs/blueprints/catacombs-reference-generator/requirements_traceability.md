@@ -75,3 +75,15 @@ Validation commands:
 Remaining blockers for Prompt 4:
 - Implement the Catacombs layered braided graph generator and semantic graph validation.
 - Add room archetype assignment, spatial embedding, corridor routing, raster/navigation validation, construction, gameplay placement, rendering integration, staged animation, and live server signing in later phases only.
+
+## Phase 3 implementation note — Catacombs layered braided graph generator
+
+Implemented in `src/dungeon/graph.ts` with algorithm identifier `catacombs.layered_braided.graph.v3.0.0`. The module exposes `generateCatacombsGraph`, validated Catacombs graph configuration resolution, deterministic stable ID allocation, graph analysis utilities, hard validation issue codes, bounded candidate selection, graph quality component scoring, inspector-ready metrics, and lightweight graph-stage snapshots.
+
+Default profile: Catacombs `graph.catacombs.layered_braided`, medium size unless difficulty/profile overrides request small or large. Candidate policy evaluates a deterministic bounded attempt stream and selects the highest quality valid graph with stable tie-breaking. Quality components cover connectivity, critical path compliance, primary trunk quality, secondary trunk usefulness, divergence/reconvergence quality, immediate-loop usefulness, conditional shortcut usefulness, dead-end purpose coverage, branch-length diversity, depth utilization, route redundancy, backtracking estimate, articulation density, degree distribution, boss separation, and Catacombs profile fit.
+
+Stable diagnostic codes for Phase 3 are exported as `CATACOMBS_GRAPH_DIAGNOSTIC_CODES`, including the required `GRAPH_*` configuration, topology, validation, quality, and exhaustion codes. Unit and multi-seed test vectors are in `test/dungeon/graph.test.ts`; the routine PR suite covers 100 deterministic seeds over small, medium, large, high-loop/secret/conditional profiles. Nightly/release recommendation: run the same graph property harness extended to 10,000 seeds nightly and 100,000 seeds for release candidates.
+
+Workbench status: `src/dungeon/workbench/adapter.ts` now provides a noncanonical graph view model for primary trunks, secondary trunks, divergences, reconvergences, loops, secrets, dead ends, critical paths, depth layers, degree/function views, articulation points, bridge edges, validation targets, and candidate history. The existing inline workbench graph logic remains legacy diagnostic behavior pending full Prompt 11 integration.
+
+Deferred by design: room assignment, room footprints, spatial embedding, corridor routing, rasterization, construction assets, renderer changes, encounters, hazards, objectives, bosses, mutable gameplay state, online session simulation, and reward authorization.
