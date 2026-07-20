@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/resolved-dungeon.schema.json",
+  "title": "resolved-dungeon.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "dungeonId": {
+      "type": "string"
+    },
+    "canonicalChecksum": {
+      "type": "string"
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "roomGraph": {
+      "type": "object"
+    },
+    "tiles": {
+      "type": "object"
+    },
+    "constructionPlacements": {
+      "type": "array"
+    },
+    "gameplayPlacements": {
+      "type": "array"
+    },
+    "bosses": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "dungeonId",
+    "rooms",
+    "roomGraph",
+    "tiles",
+    "constructionPlacements",
+    "gameplayPlacements",
+    "bosses"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "dungeonId": "dng_1",
+      "canonicalChecksum": "",
+      "rooms": [],
+      "roomGraph": {},
+      "tiles": {},
+      "constructionPlacements": [],
+      "gameplayPlacements": [],
+      "bosses": []
+    }
+  ]
+}

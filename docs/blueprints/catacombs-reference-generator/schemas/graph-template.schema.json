@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/graph-template.schema.json",
+  "title": "graph-template.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "templateId": {
+      "type": "string"
+    },
+    "templateVersion": {
+      "type": "string"
+    },
+    "layoutAlgorithm": {
+      "const": "catacombs.layered_braided"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "templateId",
+    "templateVersion",
+    "layoutAlgorithm",
+    "nodes",
+    "edges"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "templateId": "example",
+      "templateVersion": "1",
+      "layoutAlgorithm": "catacombs.layered_braided",
+      "nodes": [],
+      "edges": []
+    }
+  ]
+}

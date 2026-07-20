@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/authorized-dungeon-manifest.schema.json",
+  "title": "authorized-dungeon-manifest.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "manifestVersion": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "dungeonId": {
+      "type": "string"
+    },
+    "canonicalChecksum": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "checksumAlgorithm": {
+      "const": "sha256"
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "keyId",
+        "value"
+      ],
+      "properties": {
+        "algorithm": {
+          "enum": [
+            "Ed25519",
+            "ES256"
+          ]
+        },
+        "keyId": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "manifestVersion",
+    "sessionId",
+    "dungeonId",
+    "canonicalChecksum",
+    "checksumAlgorithm",
+    "signature",
+    "expiresAt"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "manifestVersion": "1",
+      "sessionId": "sess_1",
+      "dungeonId": "dng_1",
+      "canonicalChecksum": "0000000000000000000000000000000000000000000000000000000000000000",
+      "checksumAlgorithm": "sha256",
+      "signature": {
+        "algorithm": "Ed25519",
+        "keyId": "kid1",
+        "value": "base64sig"
+      },
+      "expiresAt": "2026-07-20T00:00:00Z"
+    }
+  ]
+}

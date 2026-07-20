@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/generation-diagnostics.schema.json",
+  "title": "generation-diagnostics.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "attemptHistory": {
+      "type": "array"
+    },
+    "stageSnapshots": {
+      "type": "array"
+    },
+    "timingsExcludedFromCanonical": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "issues",
+    "attemptHistory",
+    "stageSnapshots"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "issues": [],
+      "attemptHistory": [],
+      "stageSnapshots": [],
+      "timingsExcludedFromCanonical": {}
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/catacombs-reference-generator/dungeon-config.schema.json",
+  "title": "dungeon-config.schema.json",
+  "description": "Reference documentation schema for the Catacombs Reference Generator Blueprint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Contract schema version."
+    },
+    "generatorVersion": {
+      "type": "string"
+    },
+    "rootSeed": {
+      "type": "string"
+    },
+    "environmentId": {
+      "const": "catacombs",
+      "description": "Only active production environment."
+    },
+    "gameType": {
+      "enum": [
+        "speed_run",
+        "hunt",
+        "endurance"
+      ]
+    },
+    "difficulty": {
+      "enum": [
+        "normal",
+        "hard",
+        "expert",
+        "nightmare",
+        "hell"
+      ]
+    },
+    "authorizedPlayerCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8
+    },
+    "structuralModifiers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gameplayModifiers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assetRegistryVersion": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "generatorVersion",
+    "rootSeed",
+    "environmentId",
+    "gameType",
+    "difficulty",
+    "authorizedPlayerCount",
+    "assetRegistryVersion"
+  ],
+  "examples": [
+    {
+      "schemaVersion": "1.0.0",
+      "generatorVersion": "catacombs-gen-1",
+      "rootSeed": "12345",
+      "environmentId": "catacombs",
+      "gameType": "hunt",
+      "difficulty": "normal",
+      "authorizedPlayerCount": 4,
+      "structuralModifiers": [],
+      "gameplayModifiers": [],
+      "assetRegistryVersion": "catacombs-assets-1"
+    }
+  ]
+}
