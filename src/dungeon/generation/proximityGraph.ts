@@ -1,2 +1,5 @@
-// Cohesive generation-core module placeholder for D1 lifecycle separation.
-export {};
+import { buildDelaunayCandidateGraph } from './delaunay.js';
+import { roomCenter } from './packing.js';
+import type { DungeonGenerationConfig, PackedRoomLayout, SpatialCandidateGraph } from '../spatialEmbedding.js';
+export type ProximityGraphResult={readonly ok:true;readonly graph:SpatialCandidateGraph;readonly metrics:Readonly<Record<string,unknown>>}|{readonly ok:false;readonly failure:{stage:'candidateGraph';code:string;message:string;attemptIndex:number;affectedIds:readonly string[];retryPermitted:false}};
+export function buildProximityGraph(config:DungeonGenerationConfig,layout:PackedRoomLayout):ProximityGraphResult{const pts=layout.rooms.map(r=>({id:r.candidateId,...roomCenter(r)})).sort((a,b)=>a.id.localeCompare(b.id)); const graph=buildDelaunayCandidateGraph(pts,{maximumCandidateEdgeDistance:config.maximumCandidateEdgeDistance}); if(graph.nodes.length!==layout.rooms.length||graph.componentCount!==1||graph.edges.length<Math.max(0,layout.rooms.length-1))return {ok:false,failure:{stage:'candidateGraph',code:'CANDIDATE_GRAPH_ILLEGAL',message:'Candidate graph failed endpoint/connectivity requirements',attemptIndex:0,affectedIds:layout.rooms.map(r=>r.candidateId),retryPermitted:false}}; return {ok:true,graph,metrics:{nodeCount:graph.nodes.length,edgeCount:graph.edges.length,delaunayEdgeCount:graph.delaunayEdgeCount,fallbackEdgeCount:graph.fallbackEdgeCount,componentCount:graph.componentCount}};}

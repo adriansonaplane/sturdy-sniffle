@@ -1,2 +1,4 @@
-// Cohesive generation-core module placeholder for D1 lifecycle separation.
-export {};
+import { paddingConflicts } from './packing.js';
+import type { DungeonGenerationConfig, PackedRoomLayout, SemanticRoomLayout, DungeonTopology } from '../spatialEmbedding.js';
+export type OptimizationResult={readonly ok:true;readonly packedLayout:PackedRoomLayout;readonly semanticLayout:SemanticRoomLayout;readonly metrics:Readonly<Record<string,unknown>>}|{readonly ok:false;readonly failure:{stage:'optimization';code:string;message:string;attemptIndex:number;affectedIds:readonly string[];retryPermitted:false}};
+export function optimizeGeneration(_config:DungeonGenerationConfig,packedLayout:PackedRoomLayout,semanticLayout:SemanticRoomLayout,_topology:DungeonTopology):OptimizationResult{const conflicts=paddingConflicts(packedLayout.rooms); if(conflicts.length)return {ok:false,failure:{stage:'optimization',code:'OPTIMIZATION_INVALID_INPUT',message:'Cannot optimize invalid packed room conflicts',attemptIndex:0,affectedIds:conflicts,retryPermitted:false}}; return {ok:true,packedLayout,semanticLayout,metrics:{operationsAttempted:0,operationsAccepted:0,edgeLengthReduction:0,densityAfter:packedLayout.density,lastValidCandidateRetained:true}};}
