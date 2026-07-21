@@ -24,7 +24,7 @@
     "test:performance": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand test/dungeon/performance",
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage test/dungeon/unit test/dungeon/integration test/dungeon/property test/dungeon/regression test/dungeon/security",
     "test:security": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand test/dungeon/security",
-    "verify": "npm run typecheck && npm run build && npm run build:workbench && npm run check:workbench && npm test && npm run test:performance && npm run test:coverage && git diff --check",
+    "verify": "npm run typecheck && npm run build && npm run build:workbench && npm run check:workbench && npm test && npm run test:browser && npm run test:visual && npm run test:accessibility && npm run test:performance && npm run test:coverage && npm audit --audit-level=high && git diff --check",
     "verify:release": "npm run verify && npm run test:property:nightly && npm run test:property:release"
   },
   "keywords": [],
