@@ -36,7 +36,7 @@ test.describe('registry-backed workbench controls',()=>{
         await control.setChecked(!(await control.isChecked()));
       } else {
         // text-like inputs (seed etc.) — use a unique value
-        await control.fill(`seed-${Date.now()}`);
+        await control.fill(String(100000 + (Date.now() % 100000)));
         await control.blur();
       }
     }
