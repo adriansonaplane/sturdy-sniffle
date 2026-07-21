@@ -1,2 +1,8 @@
-// Cohesive generation-core module placeholder for D1 lifecycle separation.
-export {};
+import type { DungeonConfig } from '../contracts/index.js';
+import type { DungeonGenerationConfig } from '../spatialEmbedding.js';
+
+export function resolveGenerationConfig(config:DungeonConfig, overrides:Partial<DungeonGenerationConfig>={}):DungeonGenerationConfig{
+  const sizeProfile=overrides.sizeProfile??(config.difficulty==='normal'?'small':config.difficulty==='hard'?'medium':'large');
+  const target=overrides.exactRoomCount??overrides.targetRoomCount??(sizeProfile==='small'?18:sizeProfile==='medium'?34:50);
+  return {rootSeed:config.rootSeed,generatorVersion:config.generatorVersion,sizeProfile,exactRoomCount:target,targetRoomCount:target,minimumRoomCount:overrides.minimumRoomCount??(sizeProfile==='small'?12:sizeProfile==='medium'?27:43),maximumRoomCount:overrides.maximumRoomCount??(sizeProfile==='small'?26:sizeProfile==='medium'?42:60),areaBudget:overrides.areaBudget??(sizeProfile==='small'?14000:sizeProfile==='medium'?28000:52000),mapBounds:overrides.mapBounds??{width:1024,height:4096},targetPackingDensity:overrides.targetPackingDensity??.34,packingDensityTolerance:overrides.packingDensityTolerance??.2,minimumRoomPadding:overrides.minimumRoomPadding??3,landmarkPadding:overrides.landmarkPadding??6,initialScatterRadius:overrides.initialScatterRadius??80,separationIterationLimit:overrides.separationIterationLimit??220,packingCandidateCount:overrides.packingCandidateCount??4,maximumCandidateEdgeDistance:overrides.maximumCandidateEdgeDistance??380,maximumNodeDegree:overrides.maximumNodeDegree??5,softForwardBiasWeight:overrides.softForwardBiasWeight??.12,spatialOptimizationIterationLimit:overrides.spatialOptimizationIterationLimit??24};
+}
