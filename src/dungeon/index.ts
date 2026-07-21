@@ -13,3 +13,6 @@ export * from './gameplay.js';
 export * from './gameplayTransformations.js';
 
 export * from './generation/index.js';
+
+export * from './generationPipeline.js';
+export * from './renderInput.js';
