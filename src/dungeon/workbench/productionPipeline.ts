@@ -81,3 +81,18 @@ export const WORKBENCH_SCHEMA_FIELDS = [
 export const OVERLAY_DEFINITIONS = ['primary_trunk','secondary_trunks','divergences','reconvergences','immediate_loops','conditional_loops','secret_loops','dead_ends','room_footprints','corridor_centerlines','doorways','clearance_fields','navigation_regions','unauthorized_contacts','player_starts','encounter_regions','hazards','objectives','boss_arena','reward_presentation_locations','authored_asset_usage','procedural_fallback_usage','missing_assets','collision_footprints','manifest_verification','checksum_comparison'].map(id => ({ id, label: id.replaceAll('_', ' '), category: id.includes('asset') || id.includes('missing') ? 'Assets' : id.includes('manifest') || id.includes('checksum') ? 'Authorization' : id.includes('room') || id.includes('corridor') || id.includes('navigation') ? 'Spatial' : id.includes('start') || id.includes('boss') || id.includes('reward') || id.includes('hazard') || id.includes('objective') ? 'Gameplay' : 'Graph', implementation: 'production-record-adapter' }));
 
 export function assetRegistryForWorkbench() { return CATACOMBS_REFERENCE_ASSET_REGISTRY; }
+
+export const D3_GENERATION_FIELDS = [
+  { path: 'generation.sizeProfile', label: 'Size profile', canonical: true, enum: ['small','medium','large'], regenerationRequired: true, affectedStage: 'composition' },
+  { path: 'generation.targetRoomCount', label: 'Room count', canonical: true, type: 'integer', minimum: 12, maximum: 60, regenerationRequired: true, affectedStage: 'composition' },
+  { path: 'generation.areaBudget', label: 'Area budget', canonical: true, type: 'integer', minimum: 8000, maximum: 60000, regenerationRequired: true, affectedStage: 'packing' },
+  { path: 'generation.targetPackingDensity', label: 'Packing density', canonical: true, type: 'number', minimum: 0.2, maximum: 0.7, regenerationRequired: true, affectedStage: 'packing' },
+  { path: 'generation.minimumRoomPadding', label: 'Padding', canonical: true, type: 'integer', minimum: 1, maximum: 8, regenerationRequired: true, affectedStage: 'packing' },
+  { path: 'generation.maximumNodeDegree', label: 'Branch budget', canonical: true, type: 'integer', minimum: 2, maximum: 6, regenerationRequired: true, affectedStage: 'topology' },
+  { path: 'generation.softForwardBiasWeight', label: 'Forward-bias weight', canonical: true, type: 'number', minimum: 0, maximum: 1, regenerationRequired: true, affectedStage: 'topology' },
+  { path: 'routing.corridorWidth', label: 'Corridor width', canonical: true, type: 'integer', minimum: 1, maximum: 4, regenerationRequired: true, affectedStage: 'routing' },
+  { path: 'renderer.animationSpeed', label: 'Animation speed', canonical: false, type: 'number', minimum: 0.25, maximum: 4, regenerationRequired: false, affectedStage: 'presentation' },
+  { path: 'renderer.wallFading', label: 'Wall fading', canonical: false, type: 'boolean', regenerationRequired: false, affectedStage: 'presentation' },
+  { path: 'renderer.reducedMotion', label: 'Reduced motion', canonical: false, type: 'boolean', regenerationRequired: false, affectedStage: 'presentation' },
+  { path: 'renderer.postProcessing', label: 'Post-processing', canonical: false, type: 'boolean', regenerationRequired: false, affectedStage: 'presentation' }
+] as const;

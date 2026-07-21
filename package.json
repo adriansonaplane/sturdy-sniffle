@@ -31,6 +31,9 @@
   },
   "dependencies": {
     "@types/delaunator": "^5.0.0",
-    "delaunator": "^5.0.1"
+    "@types/three": "^0.180.0",
+    "delaunator": "^5.0.1",
+    "esbuild": "^0.25.11",
+    "three": "^0.180.0"
   }
 }

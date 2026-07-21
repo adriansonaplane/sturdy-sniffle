@@ -1,0 +1,2 @@
+import type { QualityTier } from './types.js';
+export const QUALITY_PROFILES:Record<QualityTier,{pixelRatioCap:number;shadows:boolean;localLights:number;particles:number;lod:'low'|'medium'|'high'}>={low:{pixelRatioCap:1,shadows:false,localLights:2,particles:0,lod:'low'},medium:{pixelRatioCap:1.5,shadows:false,localLights:6,particles:48,lod:'medium'},high:{pixelRatioCap:2,shadows:true,localLights:10,particles:96,lod:'high'}};
