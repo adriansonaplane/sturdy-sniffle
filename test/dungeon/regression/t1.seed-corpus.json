@@ -1,0 +1,10 @@
+[
+  {"seed":"reference-small-001","reason":"approved small reference density and connectivity","difficulty":"normal","players":4,"expectedInvariants":["connected","routed"]},
+  {"seed":"degenerate-delaunay-001","reason":"historical clustered points exercise fallback provenance","difficulty":"normal","players":4,"expectedInvariants":["connected"]},
+  {"seed":"dense-packing-001","reason":"dense packing retry/compaction corpus","difficulty":"hard","players":4,"expectedInvariants":["connected"]},
+  {"seed":"long-route-001","reason":"long corridor routing corpus","difficulty":"expert","players":4,"expectedInvariants":["connected"]},
+  {"seed":"loop-heavy-001","reason":"loop/branch selection corpus","difficulty":"hard","players":6,"expectedInvariants":["connected"]},
+  {"seed":"secret-conditional-001","reason":"secret and conditional route corpus","difficulty":"nightmare","players":4,"expectedInvariants":["connected"]},
+  {"seed":"large-dungeon-001","reason":"large dungeon budget corpus","difficulty":"hell","players":8,"expectedInvariants":["connected"]},
+  {"seed":"max-player-001","reason":"eight-player staging corpus","difficulty":"normal","players":8,"expectedInvariants":["connected"]}
+]
