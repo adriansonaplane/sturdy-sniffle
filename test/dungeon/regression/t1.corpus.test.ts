@@ -1,17 +1,10 @@
 import { readFileSync } from 'node:fs';
-const corpus = JSON.parse(readFileSync(new URL('./t1.seed-corpus.json', import.meta.url),'utf8')) as {seed:string;reason:string;difficulty:string;players:number;expectedInvariants:string[]}[];
-import { generateCatacombs } from '../../../src/dungeon/generationPipeline.js';
-import { config } from '../fixtures/config.js';
-
-describe('T1 versioned regression seed corpus',()=>{
-  for(const entry of corpus){
-    test(`${entry.seed}: ${entry.reason}`,()=>{
-      const r=generateCatacombs({config:config(entry.seed,{difficulty:entry.difficulty as any, authorizedPlayerCount:entry.players})});
-      expect(r.ok).toBe(true); if(!r.ok)return;
-      expect(r.routedLayout.metrics.successfullyRoutedEdges).toBe(r.routedLayout.metrics.graphEdgesRequiringRoutes);
-      expect(r.routedLayout.metrics.finalConnectedComponents).toBe(1);
-      expect(r.gameplay.snapshot.playerStarts.length).toBeGreaterThanOrEqual(entry.players);
-      for(const invariant of entry.expectedInvariants) expect(invariant).toBeTruthy();
-    });
-  }
+import { canonicalStringify } from '../../../src/dungeon/canonical/serializer.js';
+import { runReplayRecord, type T1ReplayRecord } from '../t1c/replay.js';
+import { normalizeT1Seed } from '../t1c/seedModel.js';
+type CorpusCase={caseId:string;reason:string;seed:number;canonicalConfiguration:T1ReplayRecord['canonicalConfiguration'];expectedResult:'success'|'failure';expectedFailureCode?:string;expectedChecksum?:string;generatorVersion:string;schemaVersion:string;invariants:string[];owner:string};
+const corpus = JSON.parse(readFileSync(new URL('./t1.seed-corpus.json', import.meta.url),'utf8')) as {version:string;minimumCaseCount:number;cases:CorpusCase[]};
+describe('T1C versioned replay/regression corpus',()=>{
+ test('corpus metadata is deterministic nonduplicative and nonshrinking',()=>{ expect(corpus.version).toBe('t1c-corpus-v1'); expect(corpus.cases.length).toBeGreaterThanOrEqual(corpus.minimumCaseCount); const ids=new Set<string>(), pairs=new Set<string>(); for(const c of corpus.cases){ expect(c.caseId).toMatch(/^t1c-/); expect(c.reason).toBeTruthy(); expect(c.owner).toBe('T1C'); expect(()=>normalizeT1Seed(c.seed)).not.toThrow(); expect(c.canonicalConfiguration.rootSeed).toBe(String(c.seed)); expect(c.generatorVersion).toBe('t1-test'); expect(c.schemaVersion).toBe('1.0.0'); expect(c.expectedResult).toMatch(/success|failure/); expect(c.invariants.length).toBeGreaterThan(0); if(c.expectedResult==='failure') expect(c.expectedFailureCode).toBeTruthy(); else expect(c.expectedChecksum).toMatch(/^[a-f0-9]{64}$/); expect(ids.has(c.caseId)).toBe(false); ids.add(c.caseId); const pair=canonicalStringify({seed:c.seed,config:c.canonicalConfiguration} as never); expect(pairs.has(pair)).toBe(false); pairs.add(pair); }});
+ for(const entry of corpus.cases){ test(`${entry.caseId}: ${entry.reason}`,()=>{ const record:T1ReplayRecord={suiteId:'t1.property.release',seedSetVersion:corpus.version,seed:entry.seed,canonicalConfiguration:entry.canonicalConfiguration,...((entry as any).generationOverrides?{generationOverrides:(entry as any).generationOverrides}:{}),shardIndex:0,shardCount:1,caseIndex:0,expectedResult:entry.expectedResult,...(entry.expectedFailureCode?{expectedFailureCode:entry.expectedFailureCode}:{}),generatorVersion:entry.generatorVersion,schemaVersion:entry.schemaVersion,...(entry.expectedChecksum?{canonicalChecksum:entry.expectedChecksum}:{})}; expect(runReplayRecord(record).ok).toBe(true); }); }
 });

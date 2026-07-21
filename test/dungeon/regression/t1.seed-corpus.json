@@ -1,10 +1,405 @@
-[
-  {"seed":"reference-small-001","reason":"approved small reference density and connectivity","difficulty":"normal","players":4,"expectedInvariants":["connected","routed"]},
-  {"seed":"degenerate-delaunay-001","reason":"historical clustered points exercise fallback provenance","difficulty":"normal","players":4,"expectedInvariants":["connected"]},
-  {"seed":"dense-packing-001","reason":"dense packing retry/compaction corpus","difficulty":"hard","players":4,"expectedInvariants":["connected"]},
-  {"seed":"long-route-001","reason":"long corridor routing corpus","difficulty":"expert","players":4,"expectedInvariants":["connected"]},
-  {"seed":"loop-heavy-001","reason":"loop/branch selection corpus","difficulty":"hard","players":6,"expectedInvariants":["connected"]},
-  {"seed":"secret-conditional-001","reason":"secret and conditional route corpus","difficulty":"nightmare","players":4,"expectedInvariants":["connected"]},
-  {"seed":"large-dungeon-001","reason":"large dungeon budget corpus","difficulty":"hell","players":8,"expectedInvariants":["connected"]},
-  {"seed":"max-player-001","reason":"eight-player staging corpus","difficulty":"normal","players":8,"expectedInvariants":["connected"]}
-]
+{
+  "version": "t1c-corpus-v1",
+  "minimumCaseCount": 11,
+  "cases": [
+    {
+      "caseId": "t1c-001",
+      "reason": "representative deterministic success",
+      "seed": 549092156,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "549092156",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "ec534b881865c6193fd9d4c5b48a998319528170083a05347ffc26fc4db04057",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-002",
+      "reason": "difficulty/player boundary",
+      "seed": 550473712,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "550473712",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "hard",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "7dea11abce2e261666f23ae78fe558722cff2b281ef6b503c0203cb898195168",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-003",
+      "reason": "routing dense representative",
+      "seed": 249989273,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "249989273",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "expert",
+        "authorizedPlayerCount": 6,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "e74bbb3fc93a133c4d4648f4dd0231b31005bcacb19a2e0f7747fe83ab946a00",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-004",
+      "reason": "representative deterministic success",
+      "seed": 1808307790,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "1808307790",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "2466a3008697488894fa50c8eafa232135fcef8c6150c03c6980aed227253454",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-005",
+      "reason": "difficulty/player boundary",
+      "seed": 4082236405,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "4082236405",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "hard",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "1181e8f72c29eaf623b157bd180dc612b6242ea9d588386942797405d5de3b1b",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-006",
+      "reason": "routing dense representative",
+      "seed": 1019139418,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "1019139418",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "expert",
+        "authorizedPlayerCount": 6,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "2c7d2256f78f9b24d5c0cf2d8fcfe82e7e14ff35c7c056235895c5840cc62fd1",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-007",
+      "reason": "representative deterministic success",
+      "seed": 3958525763,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "3958525763",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "c3c3be784bbefcd7ba4caa4f6a1f3efcf906a97efc26ed61bf42742f9d2c188d",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-008",
+      "reason": "difficulty/player boundary",
+      "seed": 911652909,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "911652909",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "hard",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "8f9933b6a98981d5f0c8d2a476104abe4588fd6301acb1c20d9d5da4a3a54d3e",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-009",
+      "reason": "routing dense representative",
+      "seed": 3149661522,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "3149661522",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "expert",
+        "authorizedPlayerCount": 6,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "d1395c64ccceaecfa34724c7efb966ef6c81dc0cf47d4a45287ced2e3fc6af1f",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-010",
+      "reason": "representative deterministic success",
+      "seed": 940076539,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "940076539",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 4,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "success",
+      "expectedChecksum": "21f6230335716093e3c19287d60611bdd8d421d5dc7dac2e8b33d6c345149592",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "connected",
+        "routed",
+        "deterministic-checksum"
+      ],
+      "owner": "T1C"
+    },
+    {
+      "caseId": "t1c-structured-failure-001",
+      "reason": "structured invalid public config failure replay",
+      "seed": 3611649535,
+      "canonicalConfiguration": {
+        "schemaVersion": "1.0.0",
+        "generatorVersion": "t1-test",
+        "rootSeed": "3611649535",
+        "generationMode": "procedural",
+        "environmentId": "catacombs",
+        "layoutProfileId": "graph.catacombs.layered_braided",
+        "gameType": "speed_run",
+        "difficulty": "normal",
+        "authorizedPlayerCount": 99,
+        "structuralModifiers": [],
+        "gameplayModifiers": [],
+        "contentTableVersions": {
+          "encounters": "1",
+          "hazards": "1",
+          "objectives": "1",
+          "bosses": "1",
+          "rewards": "1"
+        },
+        "assetRegistryVersion": "1"
+      },
+      "expectedResult": "failure",
+      "expectedFailureCode": "CORE_GENERATION_FAILED",
+      "generatorVersion": "t1-test",
+      "schemaVersion": "1.0.0",
+      "invariants": [
+        "structured-failure"
+      ],
+      "owner": "T1C",
+      "generationOverrides": {
+        "exactRoomCount": 1,
+        "minimumRoomCount": 12,
+        "maximumRoomCount": 26
+      }
+    }
+  ]
+}
