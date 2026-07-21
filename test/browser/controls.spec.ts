@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const canonical = ['rootSeed','gameType','difficulty','authorizedPlayerCount','generation.targetRoomCount','generation.areaBudget','generation.targetPackingDensity','generation.minimumRoomPadding',[...]
+const canonical = ['rootSeed','gameType','difficulty','authorizedPlayerCount','generation.targetRoomCount','generation.areaBudget','generation.targetPackingDensity','generation.minimumRoomPadding'];
 const presentation = ['renderer.quality','renderer.animateBuild','renderer.animationSpeed','renderer.wallFading','renderer.reducedMotion','renderer.postProcessing'];
 
 test.describe('registry-backed workbench controls',()=>{
