@@ -28,5 +28,9 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@types/delaunator": "^5.0.0",
+    "delaunator": "^5.0.1"
   }
 }
