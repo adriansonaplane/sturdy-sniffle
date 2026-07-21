@@ -1,0 +1,1 @@
+export type { DungeonGenerationConfig, GeneratorCoreResult, GenerationObserver, PhysicalRoomCandidate, PackedRoomLayout, SpatialCandidateGraph, DungeonTopology, SemanticRoomLayout } from '../spatialEmbedding.js';
