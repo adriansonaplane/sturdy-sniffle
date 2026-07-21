@@ -1,0 +1,3 @@
+import type { DungeonConfig } from '../../../src/dungeon/contracts/index.js';
+function numericSeed(seed:string){let h=2166136261; for(const ch of seed){h^=ch.charCodeAt(0); h=Math.imul(h,16777619)>>>0;} return String(h);}
+export function config(seed='1', extra:Partial<DungeonConfig>={}):DungeonConfig{return {schemaVersion:'1.0.0',generatorVersion:'t1-test',rootSeed:numericSeed(seed),generationMode:'procedural',environmentId:'catacombs',layoutProfileId:'graph.catacombs.layered_braided',gameType:'speed_run',difficulty:'normal',authorizedPlayerCount:4,structuralModifiers:[],gameplayModifiers:[],contentTableVersions:{encounters:'1',hazards:'1',objectives:'1',bosses:'1',rewards:'1'},assetRegistryVersion:'1',...extra};}

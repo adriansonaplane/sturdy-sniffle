@@ -1,0 +1,51 @@
+name: Catacombs T1 Verification
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      releaseSeeds:
+        description: Run release property suite
+        type: boolean
+        default: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run build:workbench
+      - run: npm run check:workbench
+      - run: npm run test:unit
+      - run: npm run test:integration
+      - run: npm run test:property:pr
+      - run: npm run test:regression
+      - run: npm run test:browser
+      - run: npm run test:accessibility
+      - run: npm run test:coverage
+      - run: npm run test:security
+      - run: npm audit --audit-level=high
+      - run: git diff --check
+  nightly:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test:property:nightly
+      - if: inputs.releaseSeeds == true
+        run: npm run test:property:release
