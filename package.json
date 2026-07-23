@@ -29,7 +29,8 @@
     "test:replay": "tsx scripts/t1/replay.ts",
     "test:property:reconcile": "tsx scripts/t1/reconcile.ts",
     "test:t1": "npm run check:runtime && node scripts/t1/verify.mjs",
-    "check:runtime": "node scripts/check-runtime.mjs"
+    "check:runtime": "node scripts/check-runtime.mjs",
+    "check:docs": "node scripts/check-docs.mjs"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +42,7 @@
     "@types/jest": "^30.0.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
+    "cross-env": "^10.1.0",
     "fast-check": "^4.3.0",
     "http-server": "^14.1.1",
     "jest": "^30.4.2",
