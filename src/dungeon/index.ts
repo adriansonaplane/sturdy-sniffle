@@ -16,3 +16,4 @@ export * from './generation/index.js';
 
 export * from './generationPipeline.js';
 export * from './renderInput.js';
+export * from './gameplayPresentation.js';

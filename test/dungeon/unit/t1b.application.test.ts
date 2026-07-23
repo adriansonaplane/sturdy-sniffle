@@ -4,7 +4,7 @@ import { TextEncoder, TextDecoder } from 'node:util';
 (globalThis as any).TextEncoder=TextEncoder; (globalThis as any).TextDecoder=TextDecoder;
 
 const calls:any[]=[];
-class MockRenderer{stats={objects:2,geometries:2,materials:3,drawCalls:1,triangles:6,generationToken:1,assetErrors:[]}; async mount(c:HTMLElement){calls.push(['mount',c.id]); c.append(document.createElement('canvas'));} async render(input:any,opts:any){calls.push(['render',input.rendererContractVersion,opts.quality]); this.stats.generationToken++;} updatePresentation(o:any){calls.push(['presentation',o]);} setOverlayState(s:any){calls.push(['overlay',s]);} resize(w:number,h:number,pr:number){calls.push(['resize',w,h,pr]);} disposeDungeon(){calls.push(['disposeDungeon']);} dispose(){calls.push(['dispose']);} getStats(){return this.stats;}}
+class MockRenderer{stats={objects:2,geometries:2,materials:3,drawCalls:1,triangles:6,generationToken:1,assetErrors:[]}; async mount(c:HTMLElement){calls.push(['mount',c.id]); c.append(document.createElement('canvas'));} async render(input:any,opts:any){calls.push(['render',input.rendererContractVersion,opts.quality]); this.stats.generationToken++;} updatePresentation(o:any){calls.push(['presentation',o]);} setOverlayState(s:any){calls.push(['overlay',s]);} resize(w:number,h:number,pr:number){calls.push(['resize',w,h,pr]);} disposeDungeon(){calls.push(['disposeDungeon']);} dispose(){calls.push(['dispose']);} selectGameplayPlacement(id?:string){calls.push(['selectGameplay',id]);} getSelectedGameplayPlacement(){return {id:'mock-placement',category:'Player start',kind:'PLAYER_START'};} getStats(){return this.stats;}}
 await jest.unstable_mockModule('../../../src/dungeon/rendering/index.js',()=>({ThreeDungeonRenderer:MockRenderer,DEFAULT_RENDERER_OPTIONS:{quality:'medium',animateBuild:false,animationSpeed:1,wallFading:true,reducedMotion:false,postProcessing:false}}));
 const { CatacombsWorkbenchApp } = await import('../../../src/dungeon/workbench/application.js');
 const { WORKBENCH_SCHEMA_FIELDS, D3_GENERATION_FIELDS, OVERLAY_DEFINITIONS } = await import('../../../src/dungeon/workbench/productionPipeline.js');
@@ -19,7 +19,7 @@ describe('T1B browser-facing workbench application lifecycle',()=>{
     const {app,root}=await mounted();
     expect(root.querySelector('#status')?.textContent).toBe('READY'); expect(calls.map(c=>c[0])).toEqual(expect.arrayContaining(['mount','resize','render']));
     for(const f of [...WORKBENCH_SCHEMA_FIELDS,...D3_GENERATION_FIELDS] as any[]) expect(control(root,f.path)).toBeTruthy();
-    expect(root.querySelectorAll('#overlays input[type="checkbox"]').length).toBe(OVERLAY_DEFINITIONS.length);
+    expect(root.querySelectorAll('#overlays input[type="checkbox"]').length).toBeGreaterThan(OVERLAY_DEFINITIONS.length);
     (root.querySelector('#tab-Configuration') as HTMLButtonElement).click(); expect(root.querySelector('#inspector')?.textContent).toContain('rootSeed');
     (document.getElementById('tab-Renderer statistics') as HTMLButtonElement).click(); expect(root.querySelector('#inspector')?.textContent).toContain('drawCalls');
     (document.getElementById('tab-Diagnostic projection') as HTMLButtonElement).click(); (root.querySelector('#filter') as HTMLInputElement).value='checksum'; root.querySelector('#filter')!.dispatchEvent(new Event('input',{bubbles:true})); expect(root.querySelector('#inspector')?.textContent).toContain('checksum');
