@@ -1,0 +1,15 @@
+objectiveId: DTD-D2
+revision: 1
+status: complete
+startedAt: '2026-07-23T00:00:00Z'
+completedAt: '2026-07-23T00:00:00Z'
+baselineCommit: fb3d3fcbf9c634a67abc7647632dab87968d1595
+expectedDtdD1Commit: f148deb
+endingCommit: 0e04b8ea3a010b320e2a6d47a672c7c1f43dd2a5
+lastSafeCheckpoint: 0e04b8ea3a010b320e2a6d47a672c7c1f43dd2a5
+nextEligibleObjective: DTD-D3
+stopConditions: []
+productionDefects: []
+deferredTestingBacklog: [full unit suite, full integration suite, full browser matrix, cross-browser testing, complete visual regression, accessibility qualification, security qualification, property testing, regression corpus, replay qualification, performance qualification, resource-stability testing, coverage reconciliation, compare-mode environmental edge cases, large-prop-count stress cases, import/export compatibility, GPU/WebGL compatibility, scene-disposal soak testing, gameplay/environment visual hierarchy review, contrast and color-vision review, determinism across supported runtimes, asset-registry migration compatibility, release-shard qualification, complete test:t1 baseline rerun]
+deferredDocumentationBacklog: [environmental construction architecture, prop taxonomy, composition rules, deterministic placement, room and corridor ownership, surface and orientation rules, navigation-clearance behavior, density and variation, environmental storytelling, asset-registry integration, prototype geometry, overlay controls, legend, selection and inspection, renderer lifecycle, canonical independence, security boundary, accessibility behavior, asset-production workflow, screenshots and diagrams, extension guidance, known limitations, consolidated testing evidence, final DTD-D2 status]
+resumeInstructions: Begin DTD-D3 by replacing procedural prototype families via registry IDs and requirements without changing DTD-D2 canonical placement IDs.
