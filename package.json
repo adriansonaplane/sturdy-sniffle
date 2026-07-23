@@ -28,7 +28,8 @@
     "verify:release": "npm run verify",
     "test:replay": "tsx scripts/t1/replay.ts",
     "test:property:reconcile": "tsx scripts/t1/reconcile.ts",
-    "test:t1": "node scripts/t1/verify.mjs"
+    "test:t1": "npm run check:runtime && node scripts/t1/verify.mjs",
+    "check:runtime": "node scripts/check-runtime.mjs"
   },
   "keywords": [],
   "author": "",
@@ -50,7 +51,7 @@
     "typescript": "^5.9.3"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24.18.0 <25"
   },
   "dependencies": {
     "@types/delaunator": "^5.0.0",
