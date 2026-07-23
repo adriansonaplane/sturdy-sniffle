@@ -1,3 +1,5 @@
+**DOC1 status:** Supporting/historical reference. For current implemented authority, lifecycle, runtime, and commands, defer to [README.md](README.md), [main_blueprint.md](main_blueprint.md), and [doc1_operations.md](doc1_operations.md).
+
 # Phase 3 — Catacombs Layered Braided Graph Generator
 
 Algorithm/version: `catacombs.layered_braided.graph.v3.0.0`.

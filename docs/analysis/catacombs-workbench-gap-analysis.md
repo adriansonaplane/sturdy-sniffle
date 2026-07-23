@@ -1,3 +1,5 @@
+**DOC1 status:** Historical pre-T1 analysis. For current implemented authority, lifecycle, runtime, and commands, defer to [../blueprints/catacombs-reference-generator/README.md](../blueprints/catacombs-reference-generator/README.md), [../blueprints/catacombs-reference-generator/main_blueprint.md](../blueprints/catacombs-reference-generator/main_blueprint.md), and [../blueprints/catacombs-reference-generator/doc1_operations.md](../blueprints/catacombs-reference-generator/doc1_operations.md).
+
 # Catacombs Workbench Gap Analysis
 
 ## 1. Executive summary
