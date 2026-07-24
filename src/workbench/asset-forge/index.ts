@@ -4,3 +4,4 @@ export * from './runtime/index.js';export * from './packages/index.js';export * 
 export * from './afD3ResumeState.js';
 export * from './catacombsPack.js';
 export * from './afD4ResumeState.js';
+export * from './catacombsMaterials.js';
