@@ -1,0 +1,27 @@
+objectiveId: DTD-D3
+revision: 1
+status: partially_implemented_asset_blocked
+startedAt: '2026-07-24T00:00:00Z'
+completedAt: null
+baselineCommit: 07fc1b8b0b488eb4ef661bcf0c7eabfcf5acd629
+expectedDtdD2Commit: 713f15ce21da16de165d416f533a9f43ce4dc80e
+assetInventoryFound:
+  productionGltfOrGlb: []
+  productionTextures: []
+requirementsFulfilled: []
+requirementsUnfulfilled: all DTD-D2 authored Catacombs model requirements remain MISSING
+validationResults:
+  manifestValidator: catacombs.dtd_d3.asset_validator.v1
+  approvedAssetCount: 0
+acceptedExceptions: []
+stopConditions:
+  - no genuine approved Catacombs authored model exists in tracked source
+lastSafeCheckpoint: DTD-D3 validation, manifest, runtime status, and procedural fallback foundation added without canonical generation changes
+resumeInstructions:
+  - Add approved local GLB/GLTF assets under an approved asset root.
+  - Add provenance, license, acceptance, and manifest entries with sha256 and budgets.
+  - Rerun npm run check:dtd-d3-assets and targeted DTD-D3 tests.
+nextEligibleObjective: none_until_DTD_D3_asset_blocker_resolved
+backlogs:
+  deferredTesting: [full unit suite, full integration suite, complete browser matrix, cross-browser asset loading, visual regression for every authored category, accessibility qualification, security qualification, malformed GLTF corpus, path-containment fuzzing, large-model stress testing, texture-memory stress testing, GPU/WebGL compatibility, decoder compatibility, cache pressure and eviction, scene-disposal soak testing, repeated regeneration soak testing, network-offline packaging verification, workbench-size qualification, LOD visual consistency, material and color-space review, lighting compatibility review, gameplay/environment hierarchy review, contrast and color-vision review, determinism across supported runtimes, replay qualification, import/export compatibility, asset-manifest migration compatibility, license and attribution audit, production deployment packaging, release-shard qualification, complete test:t1 rerun]
+  deferredDocumentation: [authored asset architecture, asset registry, manifest and integrity model, GLTF/GLB conventions, coordinate and scale standards, pivot and orientation standards, material and texture standards, LOD policy, collision metadata, loader and cache lifecycle, procedural fallback behavior, workbench asset packaging, provenance and licensing, acceptance workflow, performance budgets, validation commands, security boundary, accessibility behavior, troubleshooting, asset creation guidance, screenshots and comparison images, known limitations, consolidated testing evidence, final DTD-D3 status]

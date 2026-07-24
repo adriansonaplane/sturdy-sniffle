@@ -1,0 +1,12 @@
+schemaVersion: catacombs.dtd_d3.acceptance_results.v1
+objective: DTD-D3
+updatedAt: '2026-07-24T00:00:00Z'
+validatorVersion: catacombs.dtd_d3.asset_validator.v1
+results: []
+summary:
+  accepted: 0
+  acceptedWithException: 0
+  pendingVisualReview: 0
+  rejected: 0
+  missing: 14
+  note: No tracked production Catacombs GLB/GLTF assets were found; DTD-D2 procedural fallbacks remain authoritative.
