@@ -1,0 +1,93 @@
+objective: AF-D6R — Functional Preview, SDF Blend-Shell Rendering, and Inspection Completion
+startedBranch: work
+startingCommit: 8e6cb56351d287360648dade8bfba30508d7e8b9
+baselines:
+  AF-D1: SHELL_COMPLETE
+  AF-D2A: CORE_CONTRACTS_COMPLETE
+  AF-D2B: CONTRACTS_COMPLETE
+  AF-D3: SECURE_RUNTIME_COMPLETE
+  AF-D4: CATACOMBS_PACK_COMPLETE ed99f68
+  AF-D5: CATACOMBS_MATERIALS_COMPLETE aae4e62c3b8a77efabadfe18090c6e74c9042b99
+  AF-D6: ASSET_PREVIEW_PARTIAL 00e04826a2cec60d5b713eb51e89b5fd1e262260
+applicableInstructions:
+  - preserve candidate-only governance; do not begin AF-D7 or AF-D8
+  - use Node.js 24.18.0 and npm 11.16.0
+  - exact canonical checksum must be fnv1a-4b3c747a
+  - commit changes and create pull request metadata
+repositoryFindings:
+  - AF-D6 had immutable admission, projection, inspection, comparison, readiness, review-draft, resource-tracker, and capability descriptors in src/workbench/asset-forge/assetPreview.ts.
+  - Asset Forge Workbench route still rendered disabled planned cards rather than an operational preview workflow.
+  - Three.js 0.180.0 is bundled through esbuild into dungeon-generator-workbench.html.
+  - Existing Dungeon renderer owns WebGLRenderer lifecycle separately; AF-D6R adds an isolated Asset Preview adapter rather than reusing dungeon placement authority.
+reusedAFD6Components:
+  - admitAssetPreview
+  - buildAssetPreviewProjection
+  - createAssetInspectionReport
+  - createAssetPreviewSession
+  - createAssetReviewDraft
+  - compareAssetPreviewCandidates
+  - preview presets, overlays, budgets, and capability registration
+newProductionPresentationModules:
+  - src/workbench/asset-forge/threeAssetPreviewAdapter.ts
+  - src/workbench/asset-forge/assetPreviewSdf.ts
+  - functional Asset Forge route controls in src/workbench/asset-forge/assetForgeWorkspace.ts
+standardMeshRendererPath: immutable AF-D4/AF-D5 candidate -> AF-D6 admission -> renderer-safe projection -> ThreeAssetPreviewAdapter -> WebGLRenderer/Scene/Camera/Lights/BufferGeometry/Materials/Overlays -> controls -> inspection/report/readiness/draft -> dispose
+sdfBlendShellRendererPath: preview-only admitted primitive assembly demonstration -> SdfBlendShellProjection -> fixed RawShaderMaterial shader af-d6r.sdf-blend-shell.vertex.v1 -> one indexed draw call
+trustedShaderIdentities:
+  - af-d6r.sdf-blend-shell.vertex.v1
+supportedPrimitiveKinds: [sphere, capsule, cone]
+proceduralAnimationSystems:
+  - bounded two/four/six-leg procedural motion state
+  - hopper/flyer/tail/ear preview state represented by deterministic fixed-step scalar motion and bounded rope validation
+workbenchControlsEnabled:
+  - candidate selector/status summary
+  - active viewport canvas
+  - camera, lighting, background, LOD, material channel selectors
+  - overlay toggles
+  - turntable start/pause/reset
+  - procedural animation start/pause/step/reset
+  - structured review observation form
+browserEvidence:
+  - test/browser/afD6RWorkbench.spec.ts exercises the built workbench bundle and asserts active viewport diagnostics, controls, keyboard interaction, governance warning, and absence of prohibited controls.
+resourceEvidence:
+  creation: WebGLRenderer, Scene, PerspectiveCamera, HemisphereLight, BufferGeometry, MeshStandardMaterial, LineBasicMaterial, RawShaderMaterial, SphereGeometry, canvas, event listeners, RAF state.
+  disposal: adapter dispose/context-loss/candidate-change/LOD paths dispose tracked renderer resources and listeners.
+contextLossEvidence: webglcontextlost listener prevents default, pauses turntable/procedural motion, disposes presentation resources, and preserves inspection text.
+webglFallbackEvidence: adapter initialization preserves admission and inspection report when getContext returns null and creates no renderer.
+accessibilityEvidence: Workbench controls have labels/status text, viewport is focusable but non-trapping, toggles expose state, and browser test exercises keyboard traversal.
+reducedMotionEvidence: adapter constructed with reducedMotion starts without automatic turntable motion; motion controls remain explicit.
+regressionsExecuted:
+  - node --version => v24.18.0
+  - npm --version => 11.16.0
+  - npm run check:runtime => pass
+  - npm run typecheck => pass
+  - npm run build => pass
+  - npm run build:workbench => pass
+  - npm run check:workbench => pass
+  - git diff --check => pass
+  - AF-D2A focused suite => pass
+  - AF-D2B focused suite => pass
+  - AF-D3 focused suite => pass
+  - AF-D4 focused suite => pass
+  - AF-D5 focused suite => pass
+  - AF-D6 focused suite => pass
+  - AF-D6R/preview-admission/projection/live-adapter/standard-mesh/SDF/procedural-animation/camera/lighting/material/overlays/LOD/disposal/context-loss/WebGL-fallback/accessibility/reduced-motion/review/comparison/governance focused suite => pass
+  - Workbench browser behavior focused suite => pass
+  - Browser smoke suite => pass
+canonicalChecksumObserved: fnv1a-4b3c747a
+capabilityReportCorrections:
+  - descriptor now distinguishes standardMeshPreview, sdfBlendShellPreview, proceduralAnimationPreview, and narrow SDF/procedural categories.
+narrowProductionDefectsFixed:
+  - Replaced disabled Asset Forge preview cards with functional inspect workflow controls.
+  - Added isolated Three.js adapter with resource disposal and WebGL fallback/context-loss handling.
+  - Added static trusted SDF blend-shell shader and validation contracts.
+remainingLimitations:
+  - SDF blend-shell is limited to a narrow preview-only procedural organic demonstration backed by admitted Catacombs production descriptors, not every Catacombs architecture/prop mesh.
+  - Broad AF-T browser matrices, GPU performance qualification, visual regression, and formal documentation remain deferred.
+deferredAFD7: [physical export, encoding, package assembly, GLB/files]
+deferredAFD8: [Dungeon Generator scene integration, placements, runtime registry consumption]
+deferredAFT: [broad browser matrices, GPU/mobile performance qualification, fuzzing, visual regression]
+deferredAFDOC: [formal operator/user documentation]
+completionOutcome: ASSET_PREVIEW_COMPLETE
+commitOrCheckpointId: final git commit for this patch; see final response for exact hash
+exactNextAction: AF-D7 remains blocked until this AF-D6R commit is accepted; next objective is AF-D7 — Asset Encoding, Physical Export, and Package Assembly.
