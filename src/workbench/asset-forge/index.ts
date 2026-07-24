@@ -19,3 +19,5 @@ export * from './validation/validators.js';
 export * from './migrations/registry.js';
 export * from './integrity/canonical.js';
 export * from './adapters/index.js';
+export * from './geometry/index.js';
+export * from './generator-packs/index.js';
