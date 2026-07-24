@@ -45,7 +45,7 @@ private async compare(){const cur=this.projectConfig(); const seed=Number.parseI
 private fingerprint(v:unknown){let h=2166136261; const s=JSON.stringify(v); for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619); return `fnv1a-${(h>>>0).toString(16)}`;}
 suspend(){this.renderer.suspend?.();}
 resume(){this.renderer.resume?.();}
-dispose(){this.generationToken++; clearTimeout(this.regenTimer); this.resizeObserver?.disconnect(); this.renderer.dispose(); this.setState('DISPOSED'); this.controls?.replaceChildren(); this.inspector?.replaceChildren(); this.stats?.replaceChildren(); this.error?.replaceChildren(); this.status?.parentElement?.parentElement?.replaceChildren();}
+dispose(){this.generationToken++; clearTimeout(this.regenTimer); this.resizeObserver?.disconnect?.(); this.renderer.dispose(); this.setState('DISPOSED'); this.controls?.replaceChildren(); this.inspector?.replaceChildren(); this.stats?.replaceChildren(); this.error?.replaceChildren(); this.status?.parentElement?.parentElement?.replaceChildren();}
 private setState(s:State){this.state=s; if(this.status)this.status.textContent=s;}
 private fail(m:string){this.setState('FAILED'); this.error.textContent=m;}
 }
