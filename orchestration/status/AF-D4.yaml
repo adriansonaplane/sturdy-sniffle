@@ -1,0 +1,77 @@
+objective: AF-D4 — Catacombs Environment Pack and Ancient Ossuary Profile
+repositoryBaseline:
+  branch: work
+  startCommit: 105e413
+  applicableInstructions: No AGENTS.md files found under repository scope; commit changes and create PR.
+afD1ThroughD3Baselines:
+  AF-D1: SHELL_COMPLETE
+  AF-D2A: CORE_CONTRACTS_COMPLETE
+  AF-D2B: CONTRACTS_COMPLETE
+  AF-D3: SECURE_RUNTIME_COMPLETE
+  AF-D3VerificationCommit: eb65623
+toolchain:
+  requiredNode: 24.18.0
+  requiredNpm: 11.16.0
+  observedNode: v24.18.0
+  observedNpm: 11.16.0
+reusedContractsAndUtilities:
+  - AF-D2 identifiers, versions, safe JSON, immutable helpers, budgets, spatial, anchor, socket, collision, LOD contracts
+  - AF-D2B environment-pack, requirement, generator, validation, package, runtime registry, governance contracts
+  - AF-D3 request admission, trusted implementation registries, execution contexts, cancellation, budget enforcement, seed derivation, package integrity, validation execution, governance handoff
+  - DTD construction and environmental placement categories for traceable requirement inventory only
+environmentPackIdentity: catacombs.environment-pack@1.0.0
+ancientOssuaryProfileIdentity: catacombs.profile.ancient-ossuary@1.0.0
+requirementInventory:
+  - catacombs.req.wall-segment
+  - catacombs.req.floor-tile
+  - catacombs.req.pillar
+  - catacombs.req.arch-doorway
+  - catacombs.req.alcove
+  - catacombs.req.crypt-facade
+  - catacombs.req.sarcophagus
+  - catacombs.req.ossuary-shelf
+  - catacombs.req.bone-pile
+  - catacombs.req.rubble-pile
+  - catacombs.req.broken-masonry
+  - catacombs.req.stairs-transition
+sourceModulesAndExports:
+  modules:
+    - src/workbench/asset-forge/catacombsPack.ts
+    - src/workbench/asset-forge/integration/assetForgeRuntimeCapabilities.ts
+    - src/workbench/asset-forge/integration/assetForgeCapabilities.ts
+    - src/workbench/asset-forge/assetForgeWorkspace.ts
+    - src/workbench/asset-forge/afD4ResumeState.ts
+  publicExports: src/workbench/asset-forge/index.ts
+productionGeneratorRegistrations:
+  - catacombs.generator.construction@1.0.0 -> impl.1.0.0
+  - catacombs.generator.feature@1.0.0 -> impl.1.0.0
+  - catacombs.generator.funerary@1.0.0 -> impl.1.0.0
+  - catacombs.generator.prop@1.0.0 -> impl.1.0.0
+validationRegistrations:
+  - catacombs.validation.geometry.af-d4@1.0.0 -> impl.1.0.0
+determinismEvidence: Identical recipes produce identical output and package digests; seed changes produce controlled geometry variation; named streams are recorded and isolated.
+budgetBehavior: catacombs.budget.af-d4 is stricter than core ceilings; budget violations fail closed before package construction.
+packageCandidateEvidence: AF-D3 package builder creates immutable GENERATED_PENDING_VALIDATION candidates with recipe/output digests, generator implementation provenance, and seed stream evidence.
+governanceRestrictions: No generated package is approved, exported, promoted into RuntimeAssetRegistry, or placed into Dungeon Generator scenes.
+shellCapabilityChanges: Reports partial Catacombs/Ancient Ossuary geometry-generation support and AF-D5 through AF-D8 deferrals.
+verificationResults:
+  node --version: pass v24.18.0
+  npm --version: pass 11.16.0
+  npm run check:runtime: pass
+  npm run typecheck: pass
+  npm run build: pass
+  npm run build:workbench: pass
+  npm run check:workbench: pass
+  git diff --check: pass
+  focusedAFD4Jest: pass
+canonicalChecksumEvidence: fnv1a-4b3c747a
+narrowDefectsFixed:
+  - Updated Asset Forge capability reporting to reflect exact partial Catacombs production registration.
+deferredAFD5: Material and surface generation, final textures, shader/material packages.
+deferredAFD6ThroughD8: Preview/inspection, export, scene integration.
+deferredAFT: Broad fuzzing, statistics, performance, matrix, release tests.
+deferredAFDOC: Formal documentation.
+remainingBlockers: []
+completionOutcome: CATACOMBS_PACK_COMPLETE
+commitOrCheckpointId: AF-D4-CHECKPOINT-CATACOMBS_PACK_COMPLETE
+exactNextAction: Begin AF-D5 — Catacombs Material and Surface Generation.
