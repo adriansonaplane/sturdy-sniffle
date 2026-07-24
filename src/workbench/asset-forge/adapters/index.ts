@@ -1,0 +1,3 @@
+import type { GeneratedAssetDefinition } from '../contracts/authoritative.js';
+export interface AssetForgeAdapter<T>{readonly id:string;readonly version:string;project(asset:GeneratedAssetDefinition):T;}
+export type ThreePreviewAdapter<T=unknown>=AssetForgeAdapter<T>;export type AnimationRuntimeAdapter<T=unknown>=AssetForgeAdapter<T>;export type RapierPhysicsAdapter<T=unknown>=AssetForgeAdapter<T>;export type GltfEncodingAdapter<T=Uint8Array>=AssetForgeAdapter<T>;export type AssetForgePackageEncodingAdapter<T=Uint8Array>=AssetForgeAdapter<T>;export type DungeonConsumptionAdapter<T=unknown>=AssetForgeAdapter<T>;
