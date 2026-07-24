@@ -1,0 +1,8 @@
+import type { ResolvedWorkbenchRoute, WorkbenchWorkspace } from '../shared/workspaceContracts.js';
+import { safeErrorMessage } from './errorBoundary.js';
+export class WorkspaceHost { #root:HTMLElement; #workspaces:Map<string,WorkbenchWorkspace>; #active:WorkbenchWorkspace|undefined; #abort:AbortController|undefined; constructor(root:HTMLElement, workspaces:readonly WorkbenchWorkspace[]){this.#root=root; this.#workspaces=new Map(workspaces.map(w=>[w.id,w]));}
+async transition(route:ResolvedWorkbenchRoute, navigate:(hash:string)=>void, notify:(message:string)=>void){ const next=this.#workspaces.get(route.workspaceId); if(!next)throw new Error(`Unknown workspace ${route.workspaceId}`); if(this.#active&&this.#active.id!==next.id){ const prev=this.#active; try{await prev.deactivate?.({nextRoute:route}); await prev.unmount();}catch(e){notify(safeErrorMessage('disposal',e));} this.#abort?.abort(); this.#abort=undefined; this.#active=undefined; }
+if(!this.#active){ this.#abort=new AbortController(); const section=document.createElement('section'); section.className='workspace-root'; section.tabIndex=-1; section.setAttribute('aria-label',route.title); this.#root.replaceChildren(section); await next.mount({root:section,route,signal:this.#abort.signal,navigate,notify}); this.#active=next; } else { const root=this.#root.firstElementChild as HTMLElement; await next.activate?.({root,route,signal:this.#abort!.signal,navigate,notify}); }
+}
+async dispose(){ this.#abort?.abort(); if(this.#active){try{await this.#active.dispose();}finally{this.#active=undefined;}} this.#root.replaceChildren(); }
+}

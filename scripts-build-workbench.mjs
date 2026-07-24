@@ -8,7 +8,7 @@ const tmp = mkdtempSync(join(tmpdir(), 'catacombs-workbench-'));
 const out = join(tmp, 'bundle.js');
 try {
   await esbuild.build({
-    entryPoints: ['src/dungeon/workbench/main.ts'],
+    entryPoints: ['src/workbench/main.ts'],
     bundle: true,
     outfile: out,
     format: 'iife',
@@ -21,7 +21,7 @@ try {
     alias: { 'node:crypto': './src/dungeon/workbench/browserCryptoShim.ts' }
   });
   const js = readFileSync(out, 'utf8');
-  const sources = ['src/dungeon/workbench/main.ts','src/dungeon/workbench/application.ts','src/dungeon/workbench/styles.ts','src/dungeon/rendering/DungeonRenderer.ts','src/dungeon/rendering/assetLoader.ts','src/dungeon/generationPipeline.ts','src/dungeon/renderInput.ts','package-lock.json'];
+  const sources = ['src/workbench/main.ts','src/workbench/shell/applicationShell.ts','src/workbench/shell/router.ts','src/workbench/shared/browserPersistence.ts','src/workbench/asset-forge/assetForgeWorkspace.ts','src/workbench/settings/settingsWorkspace.ts','src/dungeon/workbench/application.ts','src/dungeon/workbench/styles.ts','src/dungeon/rendering/DungeonRenderer.ts','src/dungeon/rendering/assetLoader.ts','src/dungeon/generationPipeline.ts','src/dungeon/renderInput.ts','package-lock.json'];
   const hash = createHash('sha256');
   for (const file of sources) hash.update(file).update('\0').update(readFileSync(file));
   const sourceFingerprint = hash.digest('hex');
@@ -37,7 +37,7 @@ try {
 </head>
 <body>
 <noscript>This production Catacombs workbench requires JavaScript and WebGL. Local generation is diagnostic and unauthorized. No production signing keys or reward authority are included.</noscript>
-<script type="application/json" id="workbench-source-fingerprint">${JSON.stringify({sourceFingerprint, entry:'src/dungeon/workbench/main.ts', productionEntry:'generateCatacombs', rendererInput:'DungeonRenderInput', renderer:'Three.js WebGLRenderer'})}</script>
+<script type="application/json" id="workbench-source-fingerprint">${JSON.stringify({sourceFingerprint, entry:'src/workbench/main.ts', productionEntry:'generateCatacombs', rendererInput:'DungeonRenderInput', renderer:'Three.js WebGLRenderer'})}</script>
 <script>${safeJs}</script>
 </body>
 </html>

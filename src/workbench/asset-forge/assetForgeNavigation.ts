@@ -1,0 +1,2 @@
+import { ASSET_FORGE_CAPABILITIES } from './plannedCapabilityView.js';
+export function renderAssetForgeNavigation(activePath:string){ const nav=document.createElement('nav'); nav.className='workspace-tabs'; nav.setAttribute('aria-label','Asset Forge workspace navigation'); for(const item of ASSET_FORGE_CAPABILITIES){ const a=document.createElement('a'); a.href=item.route; a.textContent=item.label; a.setAttribute('aria-current', activePath===new URL(item.route.replace('#','http://x/#')).hash.slice(1)?'page':'false'); nav.append(a); } return nav; }
