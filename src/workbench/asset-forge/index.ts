@@ -7,3 +7,6 @@ export * from './afD4ResumeState.js';
 export * from './catacombsMaterials.js';
 export * from './assetPreview.js';
 export * from './afD6ResumeState.js';
+
+export * from './assetPreviewSdf.js';
+export * from './threeAssetPreviewAdapter.js';
