@@ -1,0 +1,65 @@
+objective: AF-D1 Shared Routed Workbench Shell and Workspace Isolation
+startTimestamp: '2026-07-24T00:00:00Z'
+finishTimestamp: '2026-07-24T00:00:00Z'
+repositoryBaseline:
+  branch: work
+  instructions: No AGENTS.md files found under repository scope.
+  hostingContract: No .openai/hosting.json found.
+existingWorkbench:
+  entryPointBefore: src/dungeon/workbench/main.ts
+  entryPointAfter: src/workbench/main.ts
+  singleFileArtifact: dungeon-generator-workbench.html
+  productionGenerationEntry: generateCatacombs
+  lifecycle: CatacombsWorkbenchApp with ThreeDungeonRenderer mount/render/suspend/resume/dispose ownership.
+routesImplemented:
+  active:
+    - '#/dungeon-generator'
+    - '#/asset-forge'
+    - '#/settings'
+    - '#/about'
+  plannedViews:
+    - '#/asset-forge/catalog'
+    - '#/asset-forge/create'
+    - '#/asset-forge/inspect'
+    - '#/asset-forge/review'
+shellModulesImplemented:
+  - src/workbench/main.ts
+  - src/workbench/shell/applicationShell.ts
+  - src/workbench/shell/router.ts
+  - src/workbench/shell/routeTable.ts
+  - src/workbench/shell/navigation.ts
+  - src/workbench/shell/workspaceHost.ts
+  - src/workbench/shell/capabilityDetection.ts
+  - src/workbench/shell/errorBoundary.ts
+  - src/workbench/shell/notifications.ts
+  - src/workbench/shared/workspaceContracts.ts
+  - src/workbench/shared/browserPersistence.ts
+  - src/workbench/shared/disposable.ts
+  - src/workbench/dungeon-generator/dungeonGeneratorWorkspace.ts
+  - src/workbench/asset-forge/assetForgeWorkspace.ts
+  - src/workbench/settings/settingsWorkspace.ts
+  - src/workbench/about/aboutWorkspace.ts
+workspaceIsolationEstablished: true
+persistenceChanges: Namespaced schema-versioned shell preferences in af.workbench.shell.preferences.v1 with allowlisted bounded values and corrupt-storage recovery.
+securityChanges: Hash routing bounds route/query input, renders text through DOM textContent, no new remote dependencies, no eval/new Function, no route-provided unsafe HTML.
+accessibilityChanges: Semantic primary/workspace navigation, landmarks, skip link, aria-current active state, live region, keyboard-reachable links and disabled planned buttons.
+resourceLifecycleChanges: Dungeon workspace wrapper owns CatacombsWorkbenchApp; renderer supports suspend/resume; workbench app disconnects ResizeObserver and disposes renderer on unmount.
+canonicalComparisonEvidence:
+  seed: '12345'
+  browserSmokeChecksumBeforeTransition: fnv1a-4b3c747a
+  browserSmokeChecksumAfterTransition: fnv1a-4b3c747a
+verificationResults:
+  npm run typecheck: pass
+  npm run build: pass
+  npm run build:workbench: pass
+  npm run check:workbench: pass
+  git diff --check: pass
+  npm run check:runtime: warning-node-version-mismatch
+  minimalBrowserSmoke: pass-after-playwright-deps-install
+productionDefectsDiscovered:
+  - Existing CatacombsWorkbenchApp did not keep a ResizeObserver handle for cleanup; fixed narrowly for workspace unmount.
+  - ThreeDungeonRenderer lacked explicit suspend/resume; fixed narrowly for hidden workspace transitions.
+remainingAFD1Work: None known within narrow verification scope.
+blockers: []
+completionOutcome: SHELL_COMPLETE
+exactNextAction: Begin AF-D2 Asset Forge Core Contracts and Registries without changing dungeon canonical contracts.

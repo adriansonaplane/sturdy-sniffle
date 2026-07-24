@@ -1,0 +1,3 @@
+import type { RouteEntry } from './router.js';
+export const ROUTES: readonly RouteEntry[]=[
+{path:'/about',workspaceId:'about',title:'About'}, {path:'/asset-forge',workspaceId:'asset-forge',title:'Asset Forge'}, {path:'/asset-forge/catalog',workspaceId:'asset-forge',title:'Asset Forge Catalog'}, {path:'/asset-forge/create',workspaceId:'asset-forge',title:'Asset Forge Create'}, {path:'/asset-forge/inspect',workspaceId:'asset-forge',title:'Asset Forge Inspect'}, {path:'/asset-forge/review',workspaceId:'asset-forge',title:'Asset Forge Review'}, {path:'/dungeon-generator',workspaceId:'dungeon-generator',title:'Dungeon Generator'}, {path:'/settings',workspaceId:'settings',title:'Settings'}];
