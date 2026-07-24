@@ -5,3 +5,5 @@ export * from './afD3ResumeState.js';
 export * from './catacombsPack.js';
 export * from './afD4ResumeState.js';
 export * from './catacombsMaterials.js';
+export * from './assetPreview.js';
+export * from './afD6ResumeState.js';
