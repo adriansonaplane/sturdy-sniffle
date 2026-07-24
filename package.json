@@ -30,7 +30,8 @@
     "test:property:reconcile": "tsx scripts/t1/reconcile.ts",
     "test:t1": "npm run check:runtime && node scripts/t1/verify.mjs",
     "check:runtime": "node scripts/check-runtime.mjs",
-    "check:docs": "node scripts/check-docs.mjs"
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:dtd-d3-assets": "tsx scripts/dtd/validate-dtd-d3-assets.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,27 @@
+schemaVersion: catacombs.dtd_d3.requirement_reconciliation.v1
+objective: DTD-D3
+updatedAt: '2026-07-24T00:00:00Z'
+sourceRequirements: orchestration/assets/requirements.yaml
+currentStatus: asset_blocked_pipeline_ready
+fulfillment:
+  APPROVED_AUTHORED: []
+  PRESENT_UNVALIDATED: []
+  REJECTED: []
+  PROCEDURAL_ONLY: []
+  MISSING:
+    - DTD-D3-CATACOMBS-STONE-COFFIN
+    - DTD-D3-CATACOMBS-WOODEN-COFFIN
+    - DTD-D3-CATACOMBS-STONE-SARCOPHAGUS
+    - DTD-D3-CATACOMBS-TOMB-MARKER-SET
+    - DTD-D3-CATACOMBS-INTACT-PILLAR
+    - DTD-D3-CATACOMBS-BROKEN-PILLAR
+    - DTD-D3-CATACOMBS-RUBBLE-SET
+    - DTD-D3-CATACOMBS-DEBRIS-SET
+    - DTD-D3-CATACOMBS-CANDLE-SET
+    - DTD-D3-CATACOMBS-STATUE-SET
+    - DTD-D3-CATACOMBS-SHRINE-SET
+    - DTD-D3-CATACOMBS-CHAIN-SET
+    - DTD-D3-CATACOMBS-WALL-DECORATION-SET
+    - DTD-D3-CATACOMBS-ARCHITECTURAL-TRIM-SET
+nextAction: Produce locally tracked Catacombs GLB/GLTF assets with provenance, license, digest, visual review, and budget evidence; then add manifest entries and rerun DTD-D3 validation.
+proceduralFallbackStatus: active_for_all_dtd_d2_environmental_categories
